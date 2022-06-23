@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="wiz_update_stats_step1" model="ir.ui.view">
+		<field name="name">wiz.updatestats.form1</field>
+		<field name="model">wiz.updatestats.prod</field>
+		<field name="arch" type="xml">
+		
+			<form string="Update Statistics Product">
+			
+				<div class="oe_title">
+					<label for="category_id" />
+					<h2>
+						<field name="category_id" style="width:80%%" />
+					</h2>
+					<separator />
+					
+				</div>
+			
+			<separator />
+
+			<footer>
+				<button string="Update Statistics Product" type="object" name="update_stats_prod"
+					default_focus="1" class="oe_link"/>
+				<button string="Cancel" class="oe_link" special="cancel" />
+			</footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="wiz_update_stats_step2" model="ir.ui.view">
+		<field name="name">wiz.updatestats.form2</field>
+		<field name="model">wiz.updatestats.prod</field>
+		<field name="arch" type="xml">
+			<form string="Update Statistics Product">
+				<field name="message" style="width:90%%" readonly="1" nolabel="1" />
+				<footer>
+					<button string="OK" special="cancel" />
+				</footer>
+			</form>
+		</field>
+	</record>
+
+    <record id="wiz_update_stats_step3" model="ir.ui.view">
+        <field name="name">wiz.updatestats.form3</field>
+        <field name="model">wiz.updatestats.partner</field>
+        <field name="arch" type="xml">
+        
+            <form string="Update Statistics Partner">
+            
+                <div class="oe_title">
+                    <label for="category_id" />
+                    <h2>
+                        <field name="category_id" style="width:80%%" />
+                    </h2>
+                    <separator />
+                    
+                </div>
+            
+            <separator />
+
+            <footer>
+                <button string="Update Statistics Partner" type="object" name="update_stats_partner"
+                    default_focus="1" class="oe_link"/>
+                <button string="Cancel" class="oe_link" special="cancel" />
+            </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wiz_update_stats_step4" model="ir.ui.view">
+        <field name="name">wiz.updatestats.form4</field>
+        <field name="model">wiz.updatestats.partner</field>
+        <field name="arch" type="xml">
+            <form string="Update Statistics Partner">
+                <field name="message" style="width:90%%" readonly="1" nolabel="1" />
+                <footer>
+                    <button string="OK" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_customer" model="ir.ui.view">
+            <field name="name">partner.customer</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field eval="90" name="priority"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[@name='internal_notes']" position="after">
+                    <page name="statistics" string="Statistics">
+                        <group name="statistics_group">
+                            <field name="di_statistics_alpha_1"/>
+                            <field name="di_statistics_alpha_2"/>
+                            <field name="di_statistics_alpha_3"/>
+                            <field name="di_statistics_alpha_4"/>
+                            <field name="di_statistics_alpha_5"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

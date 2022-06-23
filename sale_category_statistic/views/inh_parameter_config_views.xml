@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="res_config_settings_miadi_form" model="ir.ui.view">
+    <field name="name">Config Settings for Miadi</field>
+    <field name="model">res.config.settings</field>
+    <field name="priority" eval="90"/>
+    <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//div[hasclass('settings')]" position="inside">
+            <div class="app_settings_block" data-string="Miadi" string="Miadi" data-key="miadi" groups="sales_team.group_sale_manager">
+            <t groups="sales_team.group_sale_manager">
+                <h2>Miadi</h2>
+                <div class="row mt16 o_settings_container" name="miadi_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box" title="These values are default values for Miadi" name="miadi_settings_panel">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        
+                        <div class="o_setting_right_pane" name="miadi_settings_panel_right">
+                            <span class="o_form_label">Default Values</span>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                            <div class="text-muted">
+                                Default values for MIADI
+                            </div>
+                            <div class="content-group" name="miadi_settings_panel_group">
+                                
+                                
+                                <div class="row mt16"> 
+                                    <label string="Write Category Product" for="di_write_categ_product" class="col-lg-5 o_light_label"/>
+                                    <field name="di_write_categ_product" />
+                                    
+                                    <label string="Write Category Partner" for="di_write_categ_partner" class="col-lg-5 o_light_label"/>
+                                    <field name="di_write_categ_partner" />
+                                </div>
+                               
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+            </div>
+        </xpath>
+    </field>
+</record> 
+  
+    <record id="miadi_action_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_miadi_form" />
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'miadi'}</field>
+    </record>      
+   
+ 
+
+
+  
+     
+   
+ 
+</odoo>

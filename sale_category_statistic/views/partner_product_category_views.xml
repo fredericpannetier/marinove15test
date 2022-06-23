@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="action_wiz_update_stats" model="ir.actions.act_window">
+            <field name="name">Update Statistics Product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wiz.updatestats.prod</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wiz_update_stats_step1"/>
+            <field name="context">{'default_category_id': active_id}</field>
+            <field name="binding_model_id" ref="product.model_product_category"/>
+            <field name="binding_view_types">form</field>
+            <field name="target">new</field>
+        </record>
+  
+
+        <record id="action_wiz_update_stats_partner" model="ir.actions.act_window">
+            <field name="name">Update Statistics Partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wiz.updatestats.partner</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wiz_update_stats_step3"/>
+            <field name="context">{'default_category_id': active_id}</field>
+            <field name="binding_model_id" ref="base.model_res_partner_category"/>
+            <field name="binding_view_types">form</field>
+            <field name="target">new</field>
+        </record>
+   
+ 
+</odoo>

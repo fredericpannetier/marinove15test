@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="miadi_product_template_form_inherited" model="ir.ui.view">
+            <field name="name">product.form.miadi.inherited</field>
+            <field name="model">product.template</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="5"/>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+
+                
+                
+                <xpath expr="//page[@name='inventory']" position="after">
+                    <page name="statistics" string="Statistics">
+                        <group name="statistics_group">
+                            <field name="di_statistics_alpha_1"/>
+                            <field name="di_statistics_alpha_2"/>
+                            <field name="di_statistics_alpha_3"/>
+                            <field name="di_statistics_alpha_4"/>
+                            <field name="di_statistics_alpha_5"/>
+                        </group>
+                    </page>
+                </xpath>
+ 
+             </field>
+        </record>  
+
+        
+ 
+   </data>
+ 
+</odoo>
