@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="di_account_move_form" model="ir.ui.view" >
+        <field name="name">di.account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+           
+          
+            <xpath expr="//field[@name='account_id']" position="replace">
+            </xpath>
+            
+            <xpath expr="//page[@id='other_tab']" position="after">
+            
+                <page name="note" string="Note"  attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund'))]}">
+                    <label for="di_comment_invoice" string="Invoice comment"/>
+                    <field name="di_comment_invoice" />
+                </page>    
+            </xpath>  
+
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='name']" position="after">
+                <field name="di_categ_name" optional="hide" />
+            </xpath>
+
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_total']" position="before">
+                <field name="di_unite_categorie_name" invisible="1"/>
+                <field name="di_quantite_mini"  optional="hide" />
+                <field name="di_quantite_maxi" string="Quantité maxi (en milliers) (*)"  optional="hide" />
+                <field name="di_prix" attrs="{'invisible': [('di_unite_categorie_name','=','Poids')]}"  optional="hide"/>
+                
+                <field name="di_poids_kg" optional="hide" />
+                <field name="di_prix_kg" attrs="{'invisible': [('di_unite_categorie_name','!=','Poids')]}"  optional="hide"/>
+                <field name="di_nb_colis" optional="hide" />
+                <field name="di_nb_palette" optional="hide" />
+                
+                <field name="account_id"
+                    groups="account.group_account_readonly"
+                    options="{'no_create': True}"
+                    domain="[('deprecated', '=', False), ('user_type_id.type', 'not in', ('receivable', 'payable')), ('company_id', '=', parent.company_id), ('is_off_balance', '=', False)]"
+                    attrs="{'required': [('display_type', '=', False)]}"
+                    optional="hide"/>
+                
+            </xpath>
+            
+        </field>
+    </record>
+     
+    <record id="di_account_move_partner_form" model="ir.ui.view" >
+        <field name="name">di.account.move.partner.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="sale.account_invoice_form"/>
+        <field name="arch" type="xml">
+     
+            <!-->
+            <xpath expr="//field[@name='partner_shipping_id']" position="replace"/>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="partner_shipping_id" groups="sale.group_delivery_invoice_address" 
+                   attrs="{'invisible': [('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund'))]}"
+                   domain="['&amp;', '|', ('id', '=', partner_id), ('parent_id', '=', partner_id), '|', ('company_id', '=', False), ('company_id', '=', company_id)]"
+                   />
+            </xpath>
+            -->
+        <xpath expr="//field[@name='partner_shipping_id']" position="attributes">
+            <attribute name="domain">['&amp;', '|', ('id', '=', partner_id), ('parent_id', '=', partner_id), '|', ('company_id', '=', False), ('company_id', '=', company_id)]</attribute>
+        </xpath>          
+        
+        </field>    
+    </record> 
+     
+     
+    <record id="di_account_move_tree" model="ir.ui.view" >
+        <field name="name">di.account.move.tree</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+    
+            <xpath expr="//field[@name='invoice_date']" position="before">
+                <field name="di_depart_code" optional="hide" />
+                <field name="di_depart_name" optional="hide" />
+            </xpath>
+    
+        </field>
+    </record>
+          
+</odoo>

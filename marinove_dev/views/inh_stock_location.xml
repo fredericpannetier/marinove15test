@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="di_view_picking_tree" model="ir.ui.view">
+            <field name="name">di.view.location.tree</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_tree2"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='usage']" position="after">
+
+                    <field name="di_sanit_pays"/> 
+                    <field name="di_sanit"/>
+                    <field name="di_etiq_mention"/>
+                    <field name="di_etiq_printer" optional="hide"/>
+                    <field name="di_etiq_model" optional="hide"/>
+
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="di_view_location" model="ir.ui.view">
+            <field name="name">di.view.location</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='return_location']" position="after">
+                    <field name="di_sanit_pays"/> 
+                    <field name="di_sanit"/>
+                    <field name="di_etiq_mention"/>
+                    <field name="di_etiq_printer"/>
+                    <field name="di_etiq_model"/>
+                    
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

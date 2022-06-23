@@ -1,0 +1,1414 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* marinove_dev
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e-20210211\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-01 13:39+0000\n"
+"PO-Revision-Date: 2022-03-01 13:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: marinove_dev
+#: model:ir.actions.report,print_report_name:marinove_dev.action_report_picking
+msgid ""
+"'BON LIVRAISON-TRANSPORT - %s - %s' % (object.partner_id.name or '', "
+"object.name)"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<span><strong>DESTINATAIRE :</strong></span>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong class=\"mr16\">Total</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>Date de départ:</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>De</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>Etat:</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>Nb Colis</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>Nb Palettes</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>No Commande:</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>Poids</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>Produit</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>Quantité</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>TRANSPORTEUR :</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>Taille</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>Type</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "<strong>Vers</strong>"
+msgstr ""
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__active
+msgid "Active"
+msgstr "Active"
+
+#. module: marinove_dev
+#: model:ir.model.fields,help:marinove_dev.field_account_bank_statement_line__di_depart_name
+#: model:ir.model.fields,help:marinove_dev.field_account_move__di_depart_name
+#: model:ir.model.fields,help:marinove_dev.field_account_payment__di_depart_name
+#: model:ir.model.fields,help:marinove_dev.field_sale_order__di_state_name
+msgid ""
+"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr ""
+"Divisions administratives d'un pays. Par exemple. Etat, Département, Canton"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_warehouse__di_sanit
+msgid "Agrément sanitaire"
+msgstr "Agrément sanitaire"
+
+#. module: marinove_dev
+#: model_terms:ir.actions.act_window,help:marinove_dev.action_current_stock
+#: model_terms:ir.actions.act_window,help:marinove_dev.action_di_packaging
+msgid "Aide"
+msgstr "Aide"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_cerfa_wiz_form_view
+msgid "Annuler"
+msgstr "Annuler"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+msgid "Autre"
+msgstr "Autre"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "BON DE TRANSPORT"
+msgstr "BON DE TRANSPORT"
+
+#. module: marinove_dev
+#: model:ir.actions.report,name:marinove_dev.action_report_picking
+msgid "Bon Livraison Transport"
+msgstr "Bon Livraison Transport"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "CACHET ET SIGNATURE"
+msgstr "CACHET ET SIGNATURE"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "CONDITIONS GENERALES DE TRANSPORT : ACCORD AVEC LE TRANSPORTEUR"
+msgstr "CONDITIONS GENERALES DE TRANSPORT : ACCORD AVEC LE TRANSPORTEUR"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "CONTACT"
+msgstr "CONTACT"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_zip
+msgid "CP"
+msgstr "CP"
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_account_payment.py:0
+#, python-format
+msgid ""
+"Can not choose this partner. %s as on %s !\n"
+"Check Partner Accounts  "
+msgstr ""
+"Vous ne pouvez pas choisir ce partenaire. %s sur %s !\n"
+"Vérifiez les comptes comptables"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.order_opportunity_form
+#: model_terms:ir.ui.view,arch_db:marinove_dev.wiz_display_dialog_form
+msgid "Cancel"
+msgstr "Annulé"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_capital
+msgid "Capital"
+msgstr "Capital"
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_account_move.py:0
+#, python-format
+msgid "Check Partner Accounts"
+msgstr "Vérifiez les comptes comptables"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_picking__di_sale_partner_id
+msgid "Client commande"
+msgstr "Client commande"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_packaging__code
+msgid "Code"
+msgstr "Code"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_dialog__code_message
+msgid "Code Message"
+msgstr "Code Message"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__di_state_code
+#: model:ir.model.fields,field_description:marinove_dev.field_res_partner__di_state_code
+#: model:ir.model.fields,field_description:marinove_dev.field_res_users__di_state_code
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__di_state_code
+msgid "Code department"
+msgstr "Code departement"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__di_opportunity_color
+msgid "Color Opportunity"
+msgstr "Couleur de l'opportunité"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Commande"
+msgstr "Commande"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__company_id
+msgid "Company"
+msgstr "Compagnie"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.wiz_display_dialog_form
+msgid "Confirm Dialog"
+msgstr "Confirmation Dialogue"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Confirmé client"
+msgstr "Confirmé client"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Confirmé et planifié"
+msgstr "Confirmé et planifié"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.order_opportunity_form
+msgid "Create Order"
+msgstr "Création Commande"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_wiz_opportunity_order
+msgid "Create Orders from Opportunities"
+msgstr "Création Commande à partir des Opportunités"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.order_opportunity_form
+msgid "Create Quotation"
+msgstr "Création Devis"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_cerfa_wiz__create_uid
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__create_uid
+#: model:ir.model.fields,field_description:marinove_dev.field_di_packaging__create_uid
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__create_uid
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_dialog__create_uid
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_opportunity_order__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_cerfa_wiz__create_date
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__create_date
+#: model:ir.model.fields,field_description:marinove_dev.field_di_packaging__create_date
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__create_date
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_dialog__create_date
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_opportunity_order__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: marinove_dev
+#: model:ir.actions.act_window,name:marinove_dev.action_current_stock
+msgid "Current Stock"
+msgstr "Stock Inventaire"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.current_stock_form
+#: model_terms:ir.ui.view,arch_db:marinove_dev.view_current_stock_tree
+msgid "Current stock"
+msgstr "Stock Inventaire"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Current week"
+msgstr "Semaine en cours"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__partner_id
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Customer"
+msgstr "Client"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_cerfa_wiz__zipdatas
+msgid "Datas"
+msgstr "Données"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__date_disponibilite
+msgid "Date Disponibilité"
+msgstr "Date Disponibilité"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_opportunity_order__date_order
+#: model_terms:ir.ui.view,arch_db:marinove_dev.order_opportunity_form
+msgid "Date Order"
+msgstr "Date Commande"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__date_depart
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__di_date_depart
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_report__di_date_depart
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_picking__x_studio_deadline
+msgid "Date de départ"
+msgstr "Date de départ"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.current_stock_search
+msgid "Date disponibilité"
+msgstr "Date disponibilité"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.current_stock_search
+msgid "Date disponibilité du jour"
+msgstr "Date disponibilité du jour"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Date départ du jour"
+msgstr "Date départ du jour"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_report__commitment_date
+msgid "Delivery Date"
+msgstr "Date Livraison"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__di_state_name
+msgid "Department"
+msgstr "Departement"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_bank_statement_line__di_depart_code
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move__di_depart_code
+#: model:ir.model.fields,field_description:marinove_dev.field_account_payment__di_depart_code
+msgid "Department code"
+msgstr "Département code"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_bank_statement_line__di_depart_name
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move__di_depart_name
+#: model:ir.model.fields,field_description:marinove_dev.field_account_payment__di_depart_name
+msgid "Department name"
+msgstr "Département nom"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__description
+msgid "Description"
+msgstr "Description"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move_line__di_desc_cde
+msgid "Description cde"
+msgstr "Description cde"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Devis"
+msgstr "Devis"
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_crm_lead.py:0
+#, python-format
+msgid "Different Unity Category for the item   "
+msgstr "Unité de catégorie différente pour cet article "
+
+#. module: marinove_dev
+#: model:ir.actions.act_window,name:marinove_dev.action_wiz_dialog
+msgid "Display Dialog"
+msgstr "Affichage Dialogue"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_account_payment__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_di_cerfa_wiz__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_di_packaging__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_product_template__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_res_partner__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_report__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move_line__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_warehouse__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_accountingtransfer__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_dialog__display_name
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_opportunity_order__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_email
+msgid "EMail"
+msgstr "EMail"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__warehouse_id
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_warehouse_id
+msgid "Emplacement"
+msgstr "Emplacement"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__espece_name
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__espece_id
+#: model:ir.model.fields,field_description:marinove_dev.field_product_product__di_espece_id
+#: model:ir.model.fields,field_description:marinove_dev.field_product_template__di_espece_id
+msgid "Espèce"
+msgstr "Espèce"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__statut_commande
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Etape"
+msgstr "Etape"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Etape Commande"
+msgstr "Etape Commande"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Etape_de_la_commande : Annulé"
+msgstr "Etape_de_la_commande : Annulé"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Etape_de_la_commande : Confirmé client"
+msgstr "Etape_de_la_commande : Confirmé client"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Etape_de_la_commande : Confirmé et planifié"
+msgstr "Etape_de_la_commande : Confirmé et planifié"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Etape_de_la_commande : Global"
+msgstr "Etape_de_la_commande : Global"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Etape_de_la_commande : Intentionnel"
+msgstr "Etape_de_la_commande : Intentionnel"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Etape_de_la_commande : Potentiel"
+msgstr "Etape_de_la_commande : Potentiel"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_cerfa_wiz__zipname
+msgid "Filename"
+msgstr "Nom du fichier"
+
+#. module: marinove_dev
+#: model:ir.model.fields.selection,name:marinove_dev.selection__crm_lead__di_opportunity_state__win
+msgid "Gagné"
+msgstr "Gagné"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_product_product__di_cerfa
+#: model:ir.model.fields,field_description:marinove_dev.field_product_template__di_cerfa
+msgid "Generate Cerfa"
+msgstr "Génération du Cerfa"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_geste_commercial
+msgid "Geste Commercial"
+msgstr "Geste Commercial"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Global"
+msgstr "Global"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.current_stock_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Group By"
+msgstr "Groupé par"
+
+#. module: marinove_dev
+#: model:ir.actions.act_window,name:marinove_dev.di_action_di_generer_cerfa_wiz
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_cerfa_wiz_form_view
+msgid "Génération Cerfa"
+msgstr "Génération Cerfa"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_cerfa_wiz_form_view
+msgid "Générer"
+msgstr "Générer"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move__id
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__id
+#: model:ir.model.fields,field_description:marinove_dev.field_account_payment__id
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__id
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__id
+#: model:ir.model.fields,field_description:marinove_dev.field_di_cerfa_wiz__id
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__id
+#: model:ir.model.fields,field_description:marinove_dev.field_di_packaging__id
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__id
+#: model:ir.model.fields,field_description:marinove_dev.field_product_template__id
+#: model:ir.model.fields,field_description:marinove_dev.field_res_partner__id
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__id
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__id
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_report__id
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move__id
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move_line__id
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_picking__id
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_warehouse__id
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_accountingtransfer__id
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_dialog__id
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_opportunity_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_dialog__confirm_message
+msgid "Information"
+msgstr "Information"
+
+#. module: marinove_dev
+#: model:ir.model.fields.selection,name:marinove_dev.selection__crm_lead__di_opportunity_state__miss
+msgid "Infos manquantes"
+msgstr "Infos manquantes"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Intentionnel"
+msgstr "Intentionnel"
+
+#. module: marinove_dev
+#: model:ir.ui.menu,name:marinove_dev.di_menu_current_stock
+msgid "Inventaire"
+msgstr "Inventaire"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_bank_statement_line__di_comment_invoice
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move__di_comment_invoice
+#: model:ir.model.fields,field_description:marinove_dev.field_account_payment__di_comment_invoice
+#: model:ir.model.fields,field_description:marinove_dev.field_res_partner__di_comment_invoice
+#: model:ir.model.fields,field_description:marinove_dev.field_res_users__di_comment_invoice
+msgid "Invoice Notes"
+msgstr "Commentaire Facture"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_account_move_form
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_res_partner_form
+msgid "Invoice comment"
+msgstr "Commentaire Facture"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Jour Départ"
+msgstr "Jour Départ"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_account_move_line
+msgid "Journal Item"
+msgstr "Écriture comptable"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_account_payment____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_di_cerfa_wiz____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_di_packaging____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_product_template____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_res_partner____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_report____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move_line____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_picking____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_warehouse____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_accountingtransfer____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_dialog____last_update
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_opportunity_order____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_cerfa_wiz__write_uid
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__write_uid
+#: model:ir.model.fields,field_description:marinove_dev.field_di_packaging__write_uid
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__write_uid
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_dialog__write_uid
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_opportunity_order__write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_cerfa_wiz__write_date
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__write_date
+#: model:ir.model.fields,field_description:marinove_dev.field_di_packaging__write_date
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__write_date
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_dialog__write_date
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_opportunity_order__write_date
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_crm_lead_tree_view
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_production_vente_tree_view
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Lead"
+msgstr "Piste"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Piste/opportunité"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_crm_lead_calendar_view
+msgid "Leads Generation"
+msgstr "Génération Pistes"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_crm_lead_tree_view
+msgid "Leads Production"
+msgstr "Pistes Production"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_wiz_opportunity_order__opportunity_ids
+msgid "Leads/Opportunities"
+msgstr "Pistes/Opportunités"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Lieu Livraison"
+msgstr "Lieu Livraison"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__lieu_livraison
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__di_lieu_livraison_1
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_lieu_livraison
+msgid "Lieu de Livraison 1"
+msgstr "Lieu Livraison 1"
+
+#. module: marinove_dev
+#: model:ir.actions.server,name:marinove_dev.action_list_sale_production
+msgid "List Datas"
+msgstr "Liste des données"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.wiz_display_dialog_form
+msgid "Liste"
+msgstr "Liste"
+
+#. module: marinove_dev
+#: model_terms:ir.actions.act_window,help:marinove_dev.action_current_stock
+msgid "Listing of the current stock."
+msgstr "Liste Stock Inventaire"
+
+#. module: marinove_dev
+#: model_terms:ir.actions.act_window,help:marinove_dev.action_di_packaging
+msgid "Listing of the packaging."
+msgstr "Liste des conditionnements"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__location_id
+msgid "Location"
+msgstr "Emplacement"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.wiz_display_dialog_form
+msgid "MAJ Données"
+msgstr "MAJ Données"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "MARCHANDISES RECUES EN BON ETAT LE :"
+msgstr "MARCHANDISES RECUES EN BON ETAT LE :"
+
+#. module: marinove_dev
+#: model:ir.ui.menu,name:marinove_dev.menu_marinove_sale
+#: model:ir.ui.menu,name:marinove_dev.menu_marinove_stock
+msgid "Marinove"
+msgstr "Marinove"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_mobile
+msgid "Mobile"
+msgstr "Mobile"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "Mobile :"
+msgstr "Mobile :"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__montant_ca
+msgid "Montant"
+msgstr "Montant"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__x_studio_montant
+msgid "Montant CA"
+msgstr "Montant CA"
+
+#. module: marinove_dev
+#: model:ir.model.fields.selection,name:marinove_dev.selection__sale_order_line__di_geste_commercial__mortalite
+msgid "Mortalité"
+msgstr "Mortalité"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_packaging__name
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__name
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_packaging_form
+msgid "Name"
+msgstr "Nom"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__di_nb_colis
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move_line__di_nb_colis
+msgid "Nb de Colis"
+msgstr "Nb de Colis"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__di_nb_palette
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move_line__di_nb_palette
+msgid "Nb de Palettes"
+msgstr "Nb de Palettes"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move_line__di_nb_bete
+msgid "Nb de bêtes"
+msgstr "Nb de bêtes"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move_line__di_nb_bete_done
+msgid "Nb de bêtes Fait"
+msgstr "Nb de bêtes Fait"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_crm_lead_form_simple
+msgid "New order"
+msgstr "Nouvelle commande"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Next Month"
+msgstr "Mois suivant"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Next week +1"
+msgstr "Semaine +1"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Next week +2"
+msgstr "Semaine +2"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Next week +3"
+msgstr "Semaine +3"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__no_commande
+msgid "No Document"
+msgstr "No Document"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__no_lot
+#: model_terms:ir.ui.view,arch_db:marinove_dev.current_stock_search
+msgid "No Lot"
+msgstr "No Lot"
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_sale_order.py:0
+#, python-format
+msgid "No deliverable product are delivered"
+msgstr "Aucun produit livrable n'est livré"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__di_unite_categorie_name
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__di_unite_categorie_name
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__unite_categorie_name
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_unite_categorie_name
+msgid "Nom Catégorie de l'unité"
+msgstr "Nom Catégorie de l'unité"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Nom Client"
+msgstr "Nom Client"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__nb_bete
+msgid "Nombre de Bêtes"
+msgstr "Nombre de Bêtes"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_nb_colis
+msgid "Nombre de Colis"
+msgstr "Nombre de Colis"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__di_nb_colis_total
+msgid "Nombre de Colis Total"
+msgstr "Nombre de Colis Total"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_product_product__di_nb_bete_maxi_kg
+#: model:ir.model.fields,field_description:marinove_dev.field_product_template__di_nb_bete_maxi_kg
+msgid "Nombre de bêtes maxi par KG"
+msgstr "Nombre de bêtes maxi par KG"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_product_product__di_nb_bete_mini_kg
+#: model:ir.model.fields,field_description:marinove_dev.field_product_template__di_nb_bete_mini_kg
+msgid "Nombre de bêtes mini par KG"
+msgstr "Nombre de bêtes mini par KG"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_account_move_form
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_sale_order_form
+msgid "Note"
+msgstr "Note"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__description
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__di_comment
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_comment
+msgid "Notes"
+msgstr "Notes"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "OBSERVATIONS"
+msgstr "OBSERVATIONS"
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_sale_order.py:0
+#, python-format
+msgid "One of the selected Sales Order contain a partner account with 411. %s"
+msgstr "Un des bons de commande sélectionnés contient un compte partenaire avec 411. %s"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.order_opportunity_form
+msgid "Opportunities To Orders"
+msgstr "Opportunités à commander"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Opportunity"
+msgstr "Opportunité"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__di_opportunity_state
+msgid "Opportunity State"
+msgstr "Etat Opportunité"
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_crm_lead.py:0
+#, python-format
+msgid ""
+"Opportunity with no item or no carrier or no starting location or no "
+"delivery location."
+msgstr "Opportunité sans article ou sans transporteur ou sans lieu de départ ou sans lieu de livraison."
+
+#. module: marinove_dev
+#: model:ir.actions.act_window,name:marinove_dev.action_di_packaging
+#: model:ir.model,name:marinove_dev.model_di_packaging
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__packaging
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__di_packaging
+#: model:ir.ui.menu,name:marinove_dev.di_menu_packaging
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_packaging_form
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.view_di_packaging_tree
+msgid "Packaging"
+msgstr "Conditionnement"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__partner_name
+msgid "Partner Name"
+msgstr "Nom Partenaire"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_account_payment
+msgid "Payments"
+msgstr "Paiements"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__di_country_name
+msgid "Pays"
+msgstr "Pays"
+
+#. module: marinove_dev
+#: model:ir.model.fields.selection,name:marinove_dev.selection__crm_lead__di_opportunity_state__lost
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Perdu"
+msgstr "Perdu"
+
+#. module: marinove_dev
+#: model:ir.ui.menu,name:marinove_dev.di_stock_menu_production
+msgid "Planning"
+msgstr "Planning"
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_crm_lead.py:0
+#: code:addons/marinove_dev/models/inh_crm_lead.py:0
+#, python-format
+msgid "Please don't change the category of the unity."
+msgstr "SVP Ne changez pas la catégorie de l'unité"
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_crm_lead.py:0
+#, python-format
+msgid "Please select element (opportunity) from the list view."
+msgstr "SVP Sélectionnez un élément (opportunité) dans la liste."
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_crm_lead.py:0
+#, python-format
+msgid "Please select only 1 customer."
+msgstr "SVP Sélectionnez un seul client"
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_crm_lead.py:0
+#, python-format
+msgid "Please select only 1 date of departure."
+msgstr "SVP Sélectionnez 1 seule date de départ."
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move_line__di_poids_kg
+msgid "Poids Kg"
+msgstr "Poids Kg"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_stock_move_line__di_poids_kg_done
+msgid "Poids Kg Fait"
+msgstr "Poids Kg Fait"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__di_poids_kg_total
+msgid "Poids Total en Kg"
+msgstr "Poids Total en Kg"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__di_poids_kg
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__poids_kg
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__poids_kg
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_poids_kg
+msgid "Poids en Kg"
+msgstr "Poids en Kg"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_lead_search
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Potentiel"
+msgstr "Potentiel"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__di_prix
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__x_studio_prix
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__prix_millier
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_prix
+msgid "Prix (en milliers)"
+msgstr "Prix (en milliers)"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__di_prix_kg
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__x_studio_prix_kg
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__prix_kg
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_prix_kg
+msgid "Prix au Kg"
+msgstr "Prix au Kg"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__product_id
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__product_id
+#: model_terms:ir.ui.view,arch_db:marinove_dev.current_stock_form
+#: model_terms:ir.ui.view,arch_db:marinove_dev.current_stock_search
+msgid "Product"
+msgstr "Produit"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__di_categ_name
+msgid "Product Categ Name"
+msgstr "Nom de la catégorie de produit"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Mouvements d'article (Ligne de mouvement de stock)"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: marinove_dev
+#: model:ir.actions.act_window,name:marinove_dev.di_crm_lead_action_production
+#: model:ir.actions.act_window,name:marinove_dev.di_crm_lead_action_production_nbo
+#: model:ir.actions.act_window,name:marinove_dev.di_production_vente_action_production
+#: model:ir.actions.act_window,name:marinove_dev.di_production_vente_action_production_nbo
+#: model:ir.ui.menu,name:marinove_dev.di_crm_menu_production
+#: model:ir.ui.menu,name:marinove_dev.di_sale_menu_production
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Production"
+msgstr "Production"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_crm_lead_pivot_view
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_production_vente_pivot_view
+msgid "Production Analysis"
+msgstr "Analyse Production"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__di_quantite_maxi
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__quantite_maxi
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_quantite_maxi
+msgid "Quantité maxi (en milliers)"
+msgstr "Quantité maxi (en milliers)"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_account_move_form
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_crm_lead_form
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_sale_order_form
+msgid "Quantité maxi (en milliers) (*)"
+msgstr "Quantité maxi (en milliers) (*)"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_account_move_line__di_quantite_mini
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__quantite_mini
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_quantite_mini
+msgid "Quantité mini (en milliers)"
+msgstr "Quantité mini (en milliers)"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_rcs
+msgid "RCS"
+msgstr "RCS"
+
+#. module: marinove_dev
+#: model:ir.model.fields.selection,name:marinove_dev.selection__sale_order_line__di_geste_commercial__raison_comm
+msgid "Raison Commerciale"
+msgstr "Raison Commerciale"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_street
+msgid "Rue"
+msgstr "Rue"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_street2
+msgid "Rue 2"
+msgstr "Rue 2"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_production_vente_calendar_view
+msgid "Sale Generation"
+msgstr "Génération des ventes"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_production_vente_tree_view
+msgid "Sale Production"
+msgstr "Production Vente"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "Rapport d'analyse des ventes"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de bons de commande"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__team_id
+msgid "Sales Team"
+msgstr "Equipes Vente"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__user_id
+msgid "Salesperson"
+msgstr "Utilisateur Vente"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__di_schedule
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_schedule
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__schedule
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order__di_schedule
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_schedule
+msgid "Schedule"
+msgstr "Horaire"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Search Production Opportunities"
+msgstr "Recherche Production Opportunités"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Search Production Sales"
+msgstr "Recherche des Productions Vente"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.current_stock_search
+msgid "Search current stock"
+msgstr "Recherche Stock Inventaire"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_packaging_search
+msgid "Search packaging"
+msgstr "Recherche conditionnement"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.order_opportunity_form
+msgid "Select Leads/Opportunities"
+msgstr "Sélection Pistes/Opportunités"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_delivery_carrier
+msgid "Shipping Methods"
+msgstr "Méthodes d'expédition"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_siret
+msgid "Siret"
+msgstr "Siret"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__stage_id
+msgid "Stage"
+msgstr "Etape"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_di_production_vente
+msgid "Statistique Production des ventes"
+msgstr "Statistique Production des ventes"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Statut_de_la_commande : Commande"
+msgstr "Statut_de_la_commande : Commande"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Statut_de_la_commande : Confirmé client"
+msgstr "Statut_de_la_commande : Confirmé client"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Statut_de_la_commande : Confirmé et planifié"
+msgstr "Statut_de_la_commande : Confirmé et planifié"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Statut_de_la_commande : Devis"
+msgstr "Statut_de_la_commande : Devis"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_stock_move
+msgid "Stock Move"
+msgstr "Stock déplacer"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_di_current_stock
+msgid "Stock en cours : Inventaire"
+msgstr "Stock en cours : Inventaire"
+
+#. module: marinove_dev
+#: model:ir.model.fields.selection,name:marinove_dev.selection__sale_order_line__di_geste_commercial__surclassement
+msgid "Surclassement Taille"
+msgstr "Surclassement Taille"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+msgid "Tag"
+msgstr "Tag"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__taille_name
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__taille_id
+#: model:ir.model.fields,field_description:marinove_dev.field_product_product__di_taille_id
+#: model:ir.model.fields,field_description:marinove_dev.field_product_template__di_taille_id
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Taille"
+msgstr "Taille"
+
+#. module: marinove_dev
+#: model:ir.model.fields,help:marinove_dev.field_sale_order__di_country_name
+msgid "The full name of the country."
+msgstr "Le nom complet du pays"
+
+#. module: marinove_dev
+#: model:ir.model.fields,help:marinove_dev.field_account_bank_statement_line__di_depart_code
+#: model:ir.model.fields,help:marinove_dev.field_account_move__di_depart_code
+#: model:ir.model.fields,help:marinove_dev.field_account_payment__di_depart_code
+#: model:ir.model.fields,help:marinove_dev.field_crm_lead__di_state_code
+#: model:ir.model.fields,help:marinove_dev.field_res_partner__di_state_code
+#: model:ir.model.fields,help:marinove_dev.field_res_users__di_state_code
+#: model:ir.model.fields,help:marinove_dev.field_sale_order__di_state_code
+msgid "The state code."
+msgstr "Le code état"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "This Month"
+msgstr "Ce mois"
+
+#. module: marinove_dev
+#: model:ir.model.constraint,message:marinove_dev.constraint_di_packaging_name_uniq
+msgid "This packaging already exists with this name."
+msgstr "Le conditionnement existe déjà avec ce nom"
+
+#. module: marinove_dev
+#: model:ir.model.constraint,message:marinove_dev.constraint_di_current_stock_product_lot_uniq
+msgid "This product already exists with this batch."
+msgstr "Ce produit existe déjà avec ce numéro de lot"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_crm_lead_tree_view
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_production_vente_tree_view
+msgid "Total CA"
+msgstr "Total CA"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_crm_lead_tree_view
+msgid "Total Quantité"
+msgstr "Total Quantité"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_production_vente_tree_view
+msgid "Total Quantité maxi"
+msgstr "Total Quantité maxi"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_production_vente_tree_view
+msgid "Total Quantité mini"
+msgstr "Total Quantité mini"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_stock_picking
+msgid "Transfer"
+msgstr "Transfert"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_crm_lead__x_studio_transporteur_1
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__carrier_id
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_order_line__di_carrier_id
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_sale_order_form
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Transporteur"
+msgstr "Transporteur"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "Tél :"
+msgstr "Tél :"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_phone
+msgid "Téléphone"
+msgstr "Téléphone"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__unite_id
+msgid "Unité"
+msgstr "Unité"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_production_vente_tree_view
+msgid "Update Datas"
+msgstr "MAJ Données"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "VISA DE L'EXPEDITEUR"
+msgstr "VISA DE L'EXPEDITEUR"
+
+#. module: marinove_dev
+#: model_terms:ir.ui.view,arch_db:marinove_dev.report_bon_transport_marinove
+msgid "VISA DU TRANSPORTEUR / HEURE ET DATE DE REMISE"
+msgstr "VISA DU TRANSPORTEUR / HEURE ET DATE DE REMISE"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_di_current_stock__variete_name
+#: model:ir.model.fields,field_description:marinove_dev.field_di_production_vente__variete_id
+#: model:ir.model.fields,field_description:marinove_dev.field_product_product__di_variete_id
+#: model:ir.model.fields,field_description:marinove_dev.field_product_template__di_variete_id
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_crm_production_opportunities_filter
+#: model_terms:ir.ui.view,arch_db:marinove_dev.di_view_sale_production_filter
+msgid "Variété"
+msgstr "Variété"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_delivery_carrier__di_city
+msgid "Ville"
+msgstr "Ville"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Entrepôt"
+
+#. module: marinove_dev
+#: model:ir.model.fields,field_description:marinove_dev.field_sale_report__di_warehouse_name
+msgid "Warehouse Name"
+msgstr "Nom Entrepôt"
+
+#. module: marinove_dev
+#: code:addons/marinove_dev/models/inh_account_move.py:0
+#: code:addons/marinove_dev/models/inh_account_payment.py:0
+#, python-format
+msgid "Warning for %s"
+msgstr "Avertissement pour %s"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_wiz_accountingtransfer
+msgid "Wizard accounting transfer "
+msgstr "Assistant Transfert Comptable"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_di_cerfa_wiz
+msgid "Wizard de génération de cerfa"
+msgstr "Assistant de génération de cerfa"
+
+#. module: marinove_dev
+#: model:ir.model,name:marinove_dev.model_wiz_dialog
+msgid "Wizard for dialog"
+msgstr "Assistant pour le dialogue"
+
+#. module: marinove_dev
+#: model:ir.actions.act_window,name:marinove_dev.action_opportunities_orders
+msgid "_('Create quotation/order from opportunities')"
+msgstr "Création Commande à partir des Opportunités"

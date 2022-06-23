@@ -1,0 +1,9 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_di_wiz_opportunity_order,di_wiz_opportunity_order_group_user,model_wiz_opportunity_order,base.group_user,1,1,1,1
+access_di_cerfa_wiz,access.di.cerfa.wiz,model_di_cerfa_wiz,base.group_user,1,1,1,1
+access_di_production_vente,access.di.production.vente,model_di_production_vente,base.group_user,1,1,1,1
+access_di_report_planning_production,access.di_report_planning_production,model_di_report_planning_production,base.group_user,1,1,1,1
+access_di_current_stock,access.di.current.stock,model_di_current_stock,base.group_user,1,1,1,1
+access_di_packaging,access.di.packaging,model_di_packaging,base.group_user,1,1,1,1
+access_wiz_dialog,wiz_dialog_group_user,model_wiz_dialog,base.group_user,1,1,1,1
+access_wiz_stock_picking_print_etiq,wiz_stock_picking_print_etiq,model_wiz_stock_picking_print_etiq,base.group_user,1,1,1,1

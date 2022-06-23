@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+     
+    <record id="view_di_planning_production_report_pivot" model="ir.ui.view">
+         <field name="name">di.planning.production.report.pivot</field>
+         <field name="model">di.report.planning.production</field>
+         <field name="arch" type="xml">
+             <pivot string="Production Analysis" sample="1">
+                
+                    <field name="date_depart" interval="day"  type="row"/>
+                    <field name="partner_name" type="row"/>
+                    <field name="packaging" type="row"/>
+                    <field name="lieu_livraison" type="row"/>
+                    <field name="schedule" type="row"/>
+                    <field name="carrier_id" type="row"/>
+                    
+                    <field name="variete_id"  type="col"/>
+                    <field name="taille_id"  type="col"/>
+                    
+                </pivot>
+         </field>
+    </record>
+
+  
+    <record id="view_di_planning_production_report_tree" model="ir.ui.view" >
+        <field name="name">di.planning.production.report.tree</field>
+        <field name="model">di.report.planning.production</field>        
+        <field name="arch" type="xml">
+            <tree string="Sale Production" import="false" create="false">
+                    
+                    <field name="inv" invisible="True"/>
+                     
+                    <field name="warehouse_id" optional="show"/>
+                    <field name="date_depart" optional="show"/>
+
+                    <field name="name_lig" string="Lead" readonly="1" optional="hide"/>
+                    <field name="partner_id" optional="show"/>
+                    <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                    <field name="product_id" optional="show"/>
+                    
+                    <field name="statut_commande" optional="hide"/>
+                    <field name="no_commande" optional="hide"/>
+                    
+                    <field name="variete_id" optional="show"/>
+                    <field name="taille_id" optional="show"/>
+
+                    <field name="unite_id" optional="hide"/>
+                    <field name="quantite_mini" optional="show" sum="Total Quantité mini"/>
+                    <field name="quantite_maxi" optional="show" sum="Total Quantité maxi"/>
+                    <field name="poids_kg" optional="hide"/>
+  
+                    <field name="prix_millier" widget="monetary" optional="hide" attrs="{'invisible': [('inv', '=', True)]}"/>
+                    <field name="prix_kg" widget="monetary" optional="hide"  attrs="{'invisible': [('inv', '=', True)]}"/>
+                    <field name="montant_ca" widget="monetary" optional="hide"  sum="Total CA"  attrs="{'invisible': [('inv', '=', True)]}"/>
+                    
+                    <field name="packaging" optional="hide"/>
+                    <field name="lieu_livraison" optional="show"/>
+                    <field name="schedule" optional="show"/>
+                    <field name="carrier_id" optional="show"/>
+
+                    <field name="description" optional="show"/>
+                    <field name="active" invisible="1"/>
+                    
+                </tree>
+        </field>
+    </record>
+    
+    <record id="view_di_planning_production_report_calendar" model="ir.ui.view">
+        <field name="name">di.planning.production.report.calendar</field>
+        <field name="model">di.report.planning.production</field>
+        <field name="priority" eval="90"/>
+        <field name="arch" type="xml">
+            <calendar string="Planning Production" create="0" mode="month" date_start="date_depart" color="user_id" hide_time="true" event_limit="5">
+                    <field name="partner_id" avatar_field="image_128"/>
+                    <field name="lieu_livraison" optional="show"/>
+
+                    <field name="variete_id" optional="show"/>
+                    <field name="taille_id" optional="show"/>
+                    <field name="quantite_maxi" />
+                    <field name="quantite_mini"/>
+
+                   
+                </calendar>
+            
+        </field>
+    </record>  
+    
+    <record id="view_di_planning_production_report_graph" model="ir.ui.view">
+        <field name="name">di.planning.production.report.graph</field>
+        <field name="model">di.report.planning.production</field>
+        <field name="arch" type="xml">
+            <graph string="Planning Production"  sample="1">
+                <field name="date_depart" type="row"/>
+                <field name="quantite_maxi"  type='measure'/>
+            
+            </graph>
+        </field>
+    </record>
+    
+    <record id="view_di_planning_production_report_search" model="ir.ui.view">
+        <field name="name">di.planning.production.report.search</field>
+        <field name="model">di.report.planning.production</field>
+        <field name="arch" type="xml">
+                <search string="Search Production Sales">
+                    <field name="name_lig" string="Production" filter_domain="[
+                        '|', '|', '|', '|',
+                        ('partner_id', 'ilike', self),
+                        ('partner_name', 'ilike', self),
+                        ('name', 'ilike', self)]"/>
+                    <field name="partner_id" operator="child_of" string="Customer" filter_domain="[
+                        '|', '|', '|',
+                        ('partner_id', 'ilike', self),
+                        ('partner_name', 'ilike', self)]"/>
+                    
+                    <field name="user_id"/>
+                    <field name="team_id"/>
+                    <field name="stage_id" domain="[]"/>
+                   
+                    <separator/>
+
+                    <filter string="Confirmé client" name="confirme_client"
+                        domain="[('statut_commande', 'ilike', 'Confirm'),
+                                 ('statut_commande', 'ilike', 'client')]"
+                        help="Statut_de_la_commande : Confirmé client"/>
+                    <filter string="Confirmé et planifié" name="confirme_planifie"
+                        domain="[('statut_commande', 'ilike', 'Confirm'),
+                                 ('statut_commande', 'ilike', 'planif') ]"
+                        help="Statut_de_la_commande : Confirmé et planifié"/>
+                    
+                    <filter string="Devis" name="devis"
+                        domain="[('statut_commande', 'ilike', 'Devis')]"
+                        help="Statut_de_la_commande : Devis"/>
+                    <filter string="Commande" name="commande"
+                        domain="[('statut_commande', '=', 'Commande')]"
+                        help="Statut_de_la_commande : Commande"/>
+                    <separator/>    
+                        
+                    
+                    <separator/>
+                    
+                    <filter  string="Date départ du jour" name="depart_today"
+                        domain="[('date_depart', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    
+                    <filter string="Current week" name="currentweek" domain="[
+                        ('date_depart','&gt;',(context_today()+relativedelta(weeks=-1,weekday=6)).strftime('%Y-%m-%d')),
+                        ('date_depart','&lt;=',(context_today()+relativedelta(weekday=6)).strftime('%Y-%m-%d'))
+                    ]" />
+ 
+                    <filter string="Next week +1" name="nextweek1" domain="[
+                       ('date_depart', '&gt;', ((context_today()+relativedelta(weekday=6)).strftime('%%Y-%%m-%%d'))),
+                        ('date_depart', '&lt;=',((context_today()+relativedelta(weeks=1,weekday=6)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+
+                    <filter string="Next week +2" name="nextweek2" domain="[
+                       ('date_depart', '&gt;', ((context_today()+relativedelta(weeks=1,weekday=6)).strftime('%%Y-%%m-%%d'))),
+                        ('date_depart', '&lt;=',((context_today()+relativedelta(weeks=2,weekday=6)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+
+                    <filter string="Next week +3" name="nextweek3" domain="[
+                       ('date_depart', '&gt;', ((context_today()+relativedelta(weeks=2,weekday=6)).strftime('%%Y-%%m-%%d'))),
+                        ('date_depart', '&lt;=',((context_today()+relativedelta(weeks=3,weekday=6)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+                    
+                    <filter string="This Month" name="this_month" domain="[
+                        ('date_depart', '&gt;=', context_today().strftime('%%Y-%%m-01'))]"/>
+
+                   <filter string="Next Month" name="Next_month" domain="[
+                        '&amp;', ('date_depart', '&gt;=', (context_today() + relativedelta(months=1)).strftime('%%Y-%%m-01')),
+                         ('date_depart', '&lt;', (context_today() + relativedelta(months=2)).strftime('%%Y-%%m-01'))]"/>
+              
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+   
+              
+                    <group expand="0" string="Group By" colspan="16">
+                        <filter string="Jour Départ" name="joursdepart" context="{'group_by':'date_depart'}"/>
+                        
+                        <filter string="Variété" name="variete" context="{'group_by':'variete_id'}"/>
+                        <filter string="Taille" name="taille"  context="{'group_by':'taille_id'}"/>
+                        <separator orientation="vertical" />
+                        
+                        <filter string="Production" name="production" context="{'group_by':'name_lig'}"/>
+                        <filter string="Nom Client" name="client" context="{'group_by':'partner_name'}"/>
+                        <filter string="Etape" name="statutcde" context="{'group_by':'statut_commande'}"/>
+                        <filter string="Packaging" name="package" context="{'group_by':'packaging'}"/>
+                        <filter string="Lieu Livraison" name="lieuliv" context="{'group_by':'lieu_livraison'}"/>
+                        <filter string="Transporteur" name="transporteur" context="{'group_by':'carrier_id'}"/>
+                    </group>
+                   
+                </search>
+        </field>
+    </record>
+     
+    <record id="action_di_planning_production_report" model="ir.actions.act_window">
+        <field name="name">Planning Production</field>
+        <field name="res_model">di.report.planning.production</field>
+        <field name="view_mode">tree,pivot,calendar,graph</field>
+        
+        <field name="context">{
+                    'search_default_confirme_client': 1,
+                    'search_default_confirme_planifie': 1,
+                    'search_default_devis': 1,
+                    'search_default_commande': 1,
+                              }
+        </field>
+        <field name="search_view_id" ref="marinove_dev.view_di_planning_production_report_search"/>
+        
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_di_planning_production_report_tree')}),
+                (0, 0, {'view_mode': 'pivot', 'view_id': ref('view_di_planning_production_report_pivot')}),
+                (0, 0, {'view_mode': 'calendar', 'view_id': ref('view_di_planning_production_report_calendar')}),
+                (0, 0, {'view_mode': 'graph', 'view_id': ref('view_di_planning_production_report_graph')})
+                ]"/>
+                
+        <field name="help">This report performs analysis on your production.</field>
+    </record>  
+  
+
+    <menuitem
+        id="di_sale_menu_planning_production"
+        name="Planning Production"
+        parent="menu_marinove_sale"
+        
+        action="action_di_planning_production_report"
+        sequence="10"/>
+        
+    
+</odoo>

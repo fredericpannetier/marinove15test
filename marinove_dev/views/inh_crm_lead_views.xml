@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="di_crm_lead_form" model="ir.ui.view" >
+        <field name="name">di.crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="studio_customization.odoo_studio_crm_lead_3c1e6c98-bd65-499d-91b8-7f05d41210a5"/>
+        <field name="arch" type="xml">
+      
+        <!-->
+            <xpath expr="//button[@name='action_set_won_rainbowman']" position="before">
+                <button string="New order" name="action_create_sale_order" type="object" class="oe_highlight"
+                        attrs="{'invisible': ['|',  ('type', '=', 'lead'), '&amp;', ('probability', '=', 0), ('active', '=', False)]}"/>
+            </xpath>
+            
+            <xpath expr="//field[@name='x_studio_lieu_de_livraison']" position="after"> 
+                <field name="di_schedule"  />
+            </xpath>
+        -->
+        
+           <xpath expr="//field[@name='x_studio_quantit_mini_en_milliers']" position="replace"/> 
+           <xpath expr="//field[@name='x_studio_quantit_maxi_en_milliers']" position="replace"/> 
+           <xpath expr="//field[@name='x_studio_prix']" position="replace"/> 
+           <xpath expr="//field[@name='x_studio_poids_kg']" position="replace"/> 
+           <xpath expr="//field[@name='x_studio_prix_kg']" position="replace"/> 
+           <xpath expr="//field[@name='x_studio_site_de_depart']" position="replace"/> 
+            
+           <xpath expr="//field[@name='x_studio_unite']" position="after"> 
+               
+                <field name="di_unite_categorie_name" invisible="1"/>
+                <field name="x_studio_quantit_mini_en_milliers" />
+                <field name="x_studio_quantit_maxi_en_milliers" string="Quantité maxi (en milliers) (*)"  />
+                <field name="x_studio_prix" attrs="{'invisible': [('di_unite_categorie_name','=','Poids')]}" />
+                
+                <field name="x_studio_poids_kg"  />
+                <field name="x_studio_prix_kg" attrs="{'invisible': [('di_unite_categorie_name','!=','Poids')]}" />
+              
+            </xpath>
+ 
+            <xpath expr="//field[@name='x_studio_date_de_livraison_prvue']" position="after"> 
+                <field name="x_studio_site_de_depart" domain="[('usage', '=', 'internal'),('complete_name', 'ilike', 'stock/')]" />
+            </xpath>
+            
+        </field>
+    </record>
+   
+
+    <record id="di_crm_lead_form_simple" model="ir.ui.view" >
+        <field name="name">di.crm.lead.form.simple</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+      
+            <xpath expr="//button[@name='action_set_won_rainbowman']" position="before">
+                <button string="New order" name="action_create_sale_order" type="object" class="oe_highlight"
+                        attrs="{'invisible': ['|',  ('type', '=', 'lead'), '&amp;', ('probability', '=', 0), ('active', '=', False)]}"/>
+            </xpath>
+            
+            <xpath expr="//group[@name='opportunity_partner']/field[@name='partner_id']" position="attributes">
+                <attribute name="domain">['&amp;',  ('parent_id', '=', False), '|', ('company_id', '=', False), ('company_id', '=', company_id)]</attribute>
+            </xpath>
+             
+        </field>
+    </record>
+    
+    <record id="di_crm_lead_quick_create_opportunity_form" model="ir.ui.view" >
+        <field name="name">di.crm.lead.quick.create.opportunity.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="domain">['&amp;',  ('parent_id', '=', False), '|', ('company_id', '=', False), ('company_id', '=', company_id)]</attribute>
+            </xpath>
+             
+        </field>
+    </record>
+    
+   <record id="di_crm_lead_kanban" model="ir.ui.view" >
+        <field name="name">di.crm.lead.kanban</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="studio_customization.odoo_studio_crm_lead_4488c6a4-e408-4e31-99c9-413369c466bb"/>
+        <field name="arch" type="xml"> 
+        
+        <xpath expr="//kanban" position="attributes">
+            <attribute name="color">di_opportunity_color</attribute>
+            
+        </xpath>
+          
+        <xpath expr="//field[@name='name']" position="replace"/> 
+        <xpath expr="//field[@name='tag_ids']" position="after">
+            <field name="di_unite_categorie_name" invisible="1" />
+            <field name="x_studio_quantit_maxi_en_milliers" attrs="{'invisible': [('di_unite_categorie_name','=','Poids')]}"/>
+            <field name="x_studio_poids_kg" attrs="{'invisible': [('di_unite_categorie_name','!=','Poids')]}" /> 
+                     
+        </xpath>
+        
+     </field>
+    </record>
+    
+    <record id="di_view_crm_lead_tree" model="ir.ui.view">
+        <field name="name">di.view.crm.lead.tree</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="studio_customization.odoo_studio_crm_lead_c3537f08-49df-4d74-989a-ab583456f8ea"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-success">color == 10</attribute>
+                <attribute name="decoration-danger">color == 9</attribute>
+                <attribute name="decoration-warning">color == 2</attribute>
+            </xpath>
+        
+            <xpath expr="//field[@name='x_studio_dpartement']" position="after">
+                <field name="di_state_code"  optional="hide" />
+                <field name="color" invisible="1"/> 
+                
+                        
+            </xpath>
+
+        </field>
+    </record>
+ 
+     <record id="di_view_crm_lead_search" model="ir.ui.view">
+        <field name="name">di.view.crm.lead.search</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+        <field name="arch" type="xml">
+        
+            <xpath expr="//filter[@name='lost']" position="after">
+                <filter string="Autre" name="other" domain="['&amp;', ('active', '=', True), ('stage_id.is_won', '!=', True)]"/>
+            
+                <separator/>    
+                    <filter string="Global" name="global"
+                        domain="[('stage_id.name', 'ilike', 'Global')]"
+                        help="Etape_de_la_commande : Global"/>
+                    <filter string="Potentiel" name="potentiel"
+                        domain="[('stage_id.name', 'ilike', 'Potentiel')]"
+                        help="Etape_de_la_commande : Potentiel"/>
+                    <filter string="Intentionnel" name="intentionnel"
+                        domain="[('stage_id.name', 'ilike', 'Intentionnel')]"
+                        help="Etape_de_la_commande : Intentionnel"/>
+                    <!-->
+                    <filter string="Confirmé" name="confirme"
+                        domain="[('stage_id.name', 'ilike', 'Confirm')]"
+                        help="Etape_de_la_commande : Confirmé"/>
+                    --> 
+                    <filter string="Confirmé client" name="confirme_client"
+                        domain="[('stage_id.name', 'ilike', 'Confirm'),
+                                 ('stage_id.name', 'ilike', 'client')]"
+                        help="Etape_de_la_commande : Confirmé client"/>
+                    <filter string="Confirmé et planifié" name="confirme_planifie"
+                        domain="[('stage_id.name', 'ilike', 'Confirm'),
+                                 ('stage_id.name', 'ilike', 'planif') ]"
+                        help="Etape_de_la_commande : Confirmé et planifié"/>
+
+
+                    <filter string="Perdu" name="perdu"
+                        domain="[('stage_id.name', 'ilike', 'Perdu')]"
+                        help="Etape_de_la_commande : Annulé"/>
+                    
+                        
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

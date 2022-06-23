@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="di_product_template_form" model="ir.ui.view" >
+        <field name="name">di.product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+        
+            
+           <xpath expr="//field[@name='barcode']" position="after"> 
+                <field name="di_nb_bete_mini_kg"/>
+                <field name="di_nb_bete_maxi_kg"/>
+                <field name="di_variete_id"/>
+                <field name="di_taille_id"/>
+                <field name="di_espece_id"/>
+              
+            </xpath>
+           
+            <xpath expr="//field[@name='uom_po_id']" position="after"> 
+                <field name="di_etiq_model"/>
+              
+            </xpath>
+            <xpath expr="//field[@name='invoice_policy']" position="after">
+                <field name="di_cerfa"/>
+            </xpath>    
+        </field>
+    </record>
+    
+    <record id="di_product_category_form" model="ir.ui.view" >
+        <field name="name">di.product.category.form</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+        
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="di_calcul_stat"/>
+            </xpath>    
+        </field>
+    </record>
+    
+    
+</odoo>

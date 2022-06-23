@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    
+   <record id="di_view_res_partner_tree" model="ir.ui.view">
+        <field name="name">di.view.res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="studio_customization.odoo_studio_res_part_5dd6bdd4-f16e-4de9-a849-78d61942faa4"/>
+        <field name="arch" type="xml">
+        
+            
+            <xpath expr="//field[@name='country_id']" position="before">
+                <field name="di_state_code"  optional="hide" />
+            </xpath>
+            
+    
+        </field>
+    </record>
+ 
+    <record id="di_view_res_partner_form" model="ir.ui.view">
+        <field name="name">di.view.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//page[@name='internal_notes']//field[@name='comment']" position="after">
+               
+                <label for="di_comment_invoice" string="Invoice comment"/>
+                <field name="di_comment_invoice" />
+            </xpath>
+
+
+        </field>
+    </record>
+
+    <record id="sale.act_res_partner_2_sale_order" model="ir.actions.act_window">
+        <field name="domain">[('partner_id','=',active_id)]</field>
+        <field name="context">{'default_partner_id': active_id}</field>
+    </record>
+    
+</odoo>

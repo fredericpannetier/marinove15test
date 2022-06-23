@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="di_cerfa_wiz_form_view" model="ir.ui.view">
+        <field name="name">di.cerfa.wiz.form.view</field>
+        <field name="model">di.cerfa.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Génération Cerfa">
+                <footer>
+                    <button string="Générer" type="object" name="di_generer_cerfa" default_focus="1" />
+                    <button string="Annuler" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="di_action_di_generer_cerfa_wiz" model="ir.actions.act_window">
+        <field name="name">Génération Cerfa</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">di.cerfa.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>        
+        <field name="binding_model_id" ref="sale.model_sale_order"/>                
+        <field name="binding_view_types">list,form</field>        
+    </record>
+    
+</odoo>

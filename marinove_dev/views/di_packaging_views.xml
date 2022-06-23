@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+       <record id="di_packaging_search" model="ir.ui.view">
+        <field name="name">di.packaging.search</field>
+        <field name="model">di.packaging</field>
+        <field name="arch" type="xml">
+            <search string="Search packaging">
+                <field name="name" />
+                <field name="code" />
+                <separator/>     
+                               
+            </search>
+        </field>
+    </record>
+   
+    <record id="view_di_packaging_tree" model="ir.ui.view" >
+            <field name="name">di.apckaging.tree</field>
+            <field name="priority" eval="1"/>
+            <field name="model">di.packaging</field>        
+            <field name="arch" type="xml">
+                <tree string="Packaging" default_order = "name" import="true" create="true">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+    
+    <record id="di_packaging_form" model="ir.ui.view">
+        <field name="name">di.packaging.form</field>
+        <field name="model">di.packaging</field>
+        <field name="arch" type="xml">
+            <form string="Packaging">
+                <header>
+                </header>
+                <sheet>
+                    <div name="packaging_0001" class="oe_title">
+                        <H1>
+                            <field name="name" default_focus="1" placeholder="Name"/>                             
+                        </H1>
+                    </div> 
+                    
+                    <group name="packaging_002">
+                        <field name="code"/>
+                    </group>
+                </sheet>
+                               
+            </form>
+        </field>
+    </record>
+ 
+  
+   <record id="action_di_packaging" model="ir.actions.act_window">
+        <field name="name">Packaging</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">di.packaging</field>
+        <field name="search_view_id" ref="di_packaging_search"/>
+        
+                 
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Aide
+            </p>
+            <p>
+                Listing of the packaging.
+            </p>
+        </field>
+    </record>    
+ 
+    <menuitem
+        id="di_menu_packaging" name="Packaging" parent="menu_marinove_sale" action="action_di_packaging"  sequence="20"/>
+
+ 
+ 
+</odoo>

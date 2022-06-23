@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="di_view_fiscal_position" model="ir.ui.view">
+            <field name="name">di.view.fiscal_position</field>
+            <field name="model">account.fiscal.position</field>
+            <field name="inherit_id" ref="account.view_account_position_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="di_etiq_mention"/>
+                    
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

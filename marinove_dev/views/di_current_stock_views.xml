@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+       <record id="current_stock_search" model="ir.ui.view">
+        <field name="name">current.stock.search</field>
+        <field name="model">di.current.stock</field>
+        <field name="arch" type="xml">
+            <search string="Search current stock">
+                <field name="product_id" />
+                <field name="no_lot" />
+                <separator/>     
+                <filter  string="Date disponibilité du jour" name="dispo_today"
+                        domain="[('date_disponibilite', '=', context_today().strftime('%Y-%m-%d'))]"/>  
+                <separator/>  
+                <group expand="0" string="Group By" colspan="16">
+                        <filter string="Date disponibilité" name="joursdispo" context="{'group_by':'date_disponibilite'}"/>
+                        <separator orientation="vertical" />
+                        
+                        <filter string="Product" name="product" context="{'group_by':'product_id'}"/>
+                        <separator orientation="vertical" />
+                        <filter string="No Lot" name="lot" context="{'group_by':'no_lot'}"/>
+                        
+                    </group>               
+            </search>
+        </field>
+    </record>
+   
+    <record id="view_current_stock_tree" model="ir.ui.view" >
+            <field name="name">current.stock.tree</field>
+            <field name="priority" eval="1"/>
+            <field name="model">di.current.stock</field>        
+            <field name="arch" type="xml">
+                <tree string="Current stock" default_order = "product_id" import="true" create="true">
+                    <field name="product_id"/>
+                    <field name="variete_name"/>
+                    <field name="taille_name"/>
+                    <field name="espece_name"/>
+                    <field name="no_lot"/>
+                    <field name="date_disponibilite"/>
+                    <field name="date_fin_disponibilite"/>
+                    <field name="poids_kg"/>
+                    <field name="nb_bete"/>
+                </tree>
+            </field>
+        </record>
+    
+    <record id="current_stock_form" model="ir.ui.view">
+        <field name="name">current.stock.form</field>
+        <field name="model">di.current.stock</field>
+        <field name="arch" type="xml">
+            <form string="Current stock">
+                <header>
+                </header>
+                <sheet>
+                    <div name="stock_0001" class="oe_title">
+                        <H1>
+                            <field name="product_id" default_focus="1" placeholder="Product"/>                             
+                        </H1>
+                    </div> 
+                    <group name="article_001">
+                        <group name="article_002">
+                            <field name="variete_name"/>
+                            <field name="taille_name"/>
+                            <field name="espece_name"/>
+                        </group>
+
+                    </group>
+                    <group name="table_001">
+                        <group name="table_002">
+                            <field name="no_lot"/>
+                            <field name="date_disponibilite"/>
+                            <field name="date_fin_disponibilite"/>
+                        </group>
+                        <group name="table_003">
+                            <field name="poids_kg"/>
+                            <field name="nb_bete"/>
+                            <field name="location_id"/>
+                        </group>
+                    </group>
+                    
+                    <group name="table_004">
+                        <field name="description"/>
+                    </group>
+                        
+                </sheet>
+                               
+            </form>
+        </field>
+    </record>
+ 
+  
+   <record id="action_current_stock" model="ir.actions.act_window">
+        <field name="name">Current Stock</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">di.current.stock</field>
+        <field name="search_view_id" ref="current_stock_search"/>
+        
+                 
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Aide
+            </p>
+            <p>
+                Listing of the current stock.
+            </p>
+        </field>
+    </record>    
+ 
+ 
+    <menuitem id="menu_marinove_stock" name="Marinove" sequence="99" parent="stock.menu_stock_root" />   
+        <menuitem
+        id="di_menu_current_stock"
+        name="Inventaire"
+        parent="menu_marinove_stock"
+        
+        action="action_current_stock"
+        sequence="10"/>
+    <!-->    
+        <menuitem
+        id="di_stock_menu_production"
+        name="Planning"
+        parent="menu_marinove_stock"
+        
+        action="action_list_sale_production"
+        sequence="20"/>
+    -->
+        <menuitem
+        id="di_stock_menu_production"
+        name="Planning"
+        parent="menu_marinove_stock"
+        
+        action="action_di_planning_production_report"
+        sequence="20"/>
+ 
+</odoo>

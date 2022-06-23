@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+        <!-- Opportunities To Orders  -->
+        <record id="order_opportunity_form" model="ir.ui.view">
+            <field name="name">order.opportunity.form</field>
+            <field name="model">wiz.opportunity.order</field>
+            <field name="arch" type="xml">
+                <form string="Opportunities To Orders">
+                    <group string="Date Order">
+                        <field name="date_order" class="oe_inline"/>
+                        
+                    </group>
+                    <group string="Select Leads/Opportunities">
+                        <field name="opportunity_ids" nolabel="1" > <!--readonly="1"-->
+                            <tree create="false">   <!--  delete="false" -->
+                                <field name="create_date"/>
+                                <field name="name"/>
+                                <field name="type"/>
+                                <field name="partner_id"/>
+                                <field name="x_studio_date_de_dpart"/>
+                                <field name="x_studio_site_de_depart"/>
+                                <field name="x_studio_article"/>
+                                <!-->
+                                <field name="contact_name"/>
+                                <field name="email_from"/>
+                                <field name="phone" class="o_force_ltr"/>
+                                <field name="user_id"/>
+                                <field name="team_id"/>
+                                -->
+                                <field name="stage_id"/>
+                               
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="action_create_order" type="object" string="Create Order " class="btn-primary"/>
+                        <button name="action_create_quotation" type="object" string="Create Quotation " class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_opportunities_orders" model="ir.actions.act_window">
+            <field name="name">_('Create quotation/order from opportunities')</field>
+            <field name="res_model">wiz.opportunity.order</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="order_opportunity_form"/>
+            <field name="target">new</field>
+            <field name="context">{}</field>
+            <field name="binding_model_id" ref="crm.model_crm_lead"/>
+            <field name="binding_view_types">list</field>
+        </record>
+
+</odoo>

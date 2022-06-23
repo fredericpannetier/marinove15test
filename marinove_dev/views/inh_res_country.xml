@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="di_view_res_country" model="ir.ui.view">
+            <field name="name">di.view.res_country</field>
+            <field name="model">res.country</field>
+            <field name="inherit_id" ref="base.view_country_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name_position']" position="after">
+                    <field name="di_etiq_mention"/>
+                    
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

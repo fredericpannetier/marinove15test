@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <record id="di_crm_lead_tree_view" model="ir.ui.view">
+            <field name="name">di.crm.lead.tree.view</field>
+            <field name="model">crm.lead</field>
+            <field name="priority">90</field>
+            <field name="arch" type="xml">
+                <tree string="Leads Production" import="false" create="false">
+                
+                    <field name="x_studio_date_de_dpart" optional="show"/>
+
+                    <field name="name" string="Lead" readonly="1" optional="hide"/>
+                    <field name="partner_id" optional="show"/>
+                    <!--<field name="partner_name" invisible="1" /> -->
+                    <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                    <field name="x_studio_article" optional="show"/>
+                    
+                    <field name="x_studio_statut_de_la_commande" optional="hide"/>
+                    <field name="stage_id" optional="hide"/>
+                    <field name="x_studio_varit" optional="show"/>
+                    <field name="x_studio_taille" optional="show"/>
+
+                    <field name="x_studio_quantit_maxi_en_milliers" optional="show" sum="Total Quantité"/>
+                    <field name="x_studio_poids_kg" optional="hide"/>
+  
+                    <field name="x_studio_prix" widget="monetary" optional="hide"/>
+                    <field name="x_studio_prix_kg" widget="monetary" optional="hide"/>
+  <!-->                 
+                    <field name="x_studio_prix" optional="show" attrs="{'readonly': True}"/>
+   -->                
+                    <field name="x_studio_montant" widget="monetary" optional="hide"  sum="Total CA"/>
+                   
+                    <field name="x_studio_site_de_depart" optional="show" />
+                    <field name="x_studio_lieu_de_livraison" optional="hide"/>
+                    <field name="di_schedule" optional="show"/>
+                    <field name="x_studio_transporteur" optional="show"/>
+
+                    <field name="description" optional="show"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+    </record>
+    
+    
+    
+    <record id="di_crm_lead_calendar_view" model="ir.ui.view">
+        <field name="name">di.crm.lead.calendar.view</field>
+        <field name="model">crm.lead</field>
+        <field name="priority" eval="90"/>
+        <field name="arch" type="xml">
+            <calendar string="Leads Generation" create="0" mode="month" date_start="x_studio_date_de_dpart" color="user_id" hide_time="true" event_limit="5">
+                    <field name="partner_id" avatar_field="image_128"/>
+                    <field name="x_studio_site_de_depart" optional="show" />
+                    <field name="x_studio_lieu_de_livraison" optional="hide"/>
+
+                    <field name="x_studio_varit" optional="show"/>
+                    <field name="x_studio_taille" optional="show"/>
+                    <field name="x_studio_quantit_maxi_en_milliers" />
+                    <field name="x_studio_montant" optional="hide"/>
+
+                    <field name="user_id" filters="1" invisible="1"/>
+                </calendar>
+            
+        </field>
+    </record>  
+    
+    
+    <record id="di_crm_lead_pivot_view" model="ir.ui.view">
+            <field name="name">di.crm.lead.pivot.view</field>
+            <field name="model">crm.lead</field>
+            <field name="arch" type="xml">
+                <pivot string="Production Analysis" sample="1">
+                
+                    <field name="x_studio_date_de_dpart" interval="day"  type="row"/>
+                    <field name="partner_name" type="row"/>
+                    <field name="x_studio_lieu_de_livraison" type="row"/>
+                    <field name="di_schedule" type="row"/>
+                    <field name="x_studio_transporteur" type="row"/>
+                    <!-- 
+                    <field name="description" type="row"/>
+                    <field name="x_studio_site_de_depart"  type="col"/> 
+                    -->
+                    <field name="x_studio_varit"  type="col"/>
+                    <field name="x_studio_taille"  type="col"/>
+                    
+                    <field name="x_studio_quantit_maxi_en_milliers" type="measure"/>
+                    
+                </pivot>
+            </field>
+    </record>
+    
+        <record id="di_view_crm_production_opportunities_filter" model="ir.ui.view">
+            <field name="name">di.crm.lead.search.production</field>
+            <field name="model">crm.lead</field>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+                <search string="Search Production Opportunities">
+                    <field name="name" string="Opportunity" filter_domain="[
+                        '|', '|', '|', '|',
+                        ('partner_id', 'ilike', self),
+                        ('partner_name', 'ilike', self),
+                        ('email_from', 'ilike', self),
+                        ('name', 'ilike', self),
+                        ('contact_name', 'ilike', self)]"/>
+                    <field name="partner_id" operator="child_of" string="Customer" filter_domain="[
+                        '|', '|', '|',
+                        ('partner_id', 'ilike', self),
+                        ('partner_name', 'ilike', self),
+                        ('email_from', 'ilike', self),
+                        ('contact_name', 'ilike', self)]"/>
+                    <field name="tag_ids" string="Tag" filter_domain="[('tag_ids', 'ilike', self)]"/>
+                    <field name="user_id"/>
+                    <field name="team_id"/>
+                    <field name="stage_id" domain="[]"/>
+                    <field name="country_id"/>
+                    <field name="city"/>
+                    <field name="phone_mobile_search"/>
+                    <separator/>
+                    
+                    <filter string="Global" name="global"
+                        domain="[('stage_id.name', 'ilike', 'Global')]"
+                        help="Etape_de_la_commande : Global"/>
+                    <filter string="Potentiel" name="potentiel"
+                        domain="[('stage_id.name', 'ilike', 'Potentiel')]"
+                        help="Etape_de_la_commande : Potentiel"/>
+                    <filter string="Intentionnel" name="intentionnel"
+                        domain="[('stage_id.name', 'ilike', 'Intentionnel')]"
+                        help="Etape_de_la_commande : Intentionnel"/>
+                    <!-->
+                    <filter string="Confirmé" name="confirme"
+                        domain="[('stage_id.name', 'ilike', 'Confirm')]"
+                        help="Etape_de_la_commande : Confirmé"/>
+                    -->
+                    <filter string="Confirmé client" name="confirme_client"
+                        domain="[('stage_id.name', 'ilike', 'Confirm'),
+                                 ('stage_id.name', 'ilike', 'client')]"
+                        help="Etape_de_la_commande : Confirmé client"/>
+                    <filter string="Confirmé et planifié" name="confirme_planifie"
+                        domain="[('stage_id.name', 'ilike', 'Confirm'),
+                                 ('stage_id.name', 'ilike', 'planif') ]"
+                        help="Etape_de_la_commande : Confirmé et planifié"/>
+
+                    
+                    <filter string="Perdu" name="perdu"
+                        domain="[('stage_id.name', 'ilike', 'Perdu')]"
+                        help="Etape_de_la_commande : Annulé"/>
+                    
+                    <separator/>    
+                        
+                    <!-- 
+                    
+                    <filter string="Intentionnel" name="intentionnel"
+                        domain="[('x_studio_statut_de_la_commande', '=', 'I')]"
+                        help="Statut_de_la_commande : Intentionnel"/>
+                    <filter string="Global" name="global"
+                        domain="[('x_studio_statut_de_la_commande', '=', 'G')]"
+                        help="Statut_de_la_commande : Global"/>
+                    <filter string="Confirmé" name="confirme"
+                        domain="[('x_studio_statut_de_la_commande', '=', 'C')]"
+                        help="Statut_de_la_commande : Confirmé"/>
+                    <filter string="Potentiel" name="potentiel"
+                        domain="[('x_studio_statut_de_la_commande', '=', 'P')]"
+                        help="Statut_de_la_commande : Potentiel"/>
+                    <filter string="Annulé" name="annule"
+                        domain="[('x_studio_statut_de_la_commande', '=', 'A')]"
+                        help="Statut_de_la_commande : Annulé"/>
+                    <filter string="Indéfini" name="indefini"
+                        domain="[('x_studio_statut_de_la_commande', '=', False)]"
+                        help="Statut_de_la_commande : vide"/>
+                        
+                    
+                    
+                    
+                    <filter string="NBO" name="nbo"
+                        domain="[('x_studio_site_de_depart', '=', 'NBO')]"
+                        help="Site : NBO"/>  
+                    <filter string="PGNO" name="pgno"
+                        domain="[('x_studio_site_de_depart', '=', 'PGNO')]"
+                        help="Site : PGNO"/>  
+                    <filter string="NNO" name="nno"
+                        domain="[('x_studio_site_de_depart', '=', 'NNO')]"
+                        help="Site : NNO"/>  
+                    
+                    <filter string="μNNO" name="nno2"
+                        domain="[('x_studio_site_de_depart', '=', 'μNNO')]"
+                        help="Site : μNNO"/>
+                         
+                    <filter string="VIV" name="viv"
+                        domain="[('x_studio_site_de_depart', '=', 'VIV')]"
+                        help="Site : VIV"/>                   -->
+                    <separator/>
+                    
+                    <filter  string="Date départ du jour" name="depart_today"
+                        domain="[('x_studio_date_de_dpart', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                        
+                    <filter string="Current week" name="currentweek" domain="[
+                        ('x_studio_date_de_dpart','&gt;',(context_today() + relativedelta(weeks=-1,weekday=6)).strftime('%Y-%m-%d')),
+                        ('x_studio_date_de_dpart','&lt;',(context_today() + relativedelta(weekday=6)).strftime('%Y-%m-%d'))
+                    ]" />
+                    
+                    <filter string="Next week +1" name="nextweek1" domain="[
+                       ('x_studio_date_de_dpart', '&gt;', ((context_today()+relativedelta(weekday=6)).strftime('%%Y-%%m-%%d'))),
+                        ('x_studio_date_de_dpart', '&lt;=',((context_today()+relativedelta(weeks=1,weekday=6)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+
+                    <filter string="Next week +2" name="nextweek2" domain="[
+                       ('x_studio_date_de_dpart', '&gt;', ((context_today()+relativedelta(weeks=1,weekday=6)).strftime('%%Y-%%m-%%d'))),
+                        ('x_studio_date_de_dpart', '&lt;=',((context_today()+relativedelta(weeks=2,weekday=6)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+
+                    <filter string="Next week +3" name="nextweek3" domain="[
+                       ('x_studio_date_de_dpart', '&gt;', ((context_today()+relativedelta(weeks=2,weekday=6)).strftime('%%Y-%%m-%%d'))),
+                        ('x_studio_date_de_dpart', '&lt;=',((context_today()+relativedelta(weeks=3,weekday=6)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+<!-->
+                    <filter string="Last week" name="lastweek" domain="[
+                        ('x_studio_date_de_dpart', '&gt;=', ((context_today()+relativedelta(weeks=-2,days=1, weekday=0)).strftime('%%Y-%%m-%%d'))),
+                        ('x_studio_date_de_dpart', '&lt;=', ((context_today()+relativedelta(weeks=-1,weekday=6)).strftime('%%Y-%%m-%%d')))
+                    ]"/>
+                    
+                     <filter string="Previous weeks" name="previousweeks" domain="[
+                        ('x_studio_date_de_dpart', '&lt;=', ((context_today()+relativedelta(weeks=-2,days=1, weekday=0)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+                    <filter string="Last Month" name="last_month" domain="[
+                        '&amp;', ('x_studio_date_de_dpart', '&gt;=', (context_today() - relativedelta(months=1)).strftime('%%Y-%%m-01')),
+                         ('x_studio_date_de_dpart', '&lt;', context_today().strftime('%%Y-%%m-01'))]"/>
+
+-->                    
+                    
+                    <filter string="This Month" name="this_month" domain="[
+                        ('x_studio_date_de_dpart', '&gt;=', context_today().strftime('%%Y-%%m-01'))]"/>
+                        
+              
+                    <filter string="Next Month" name="Next_month" domain="[
+                        '&amp;', ('x_studio_date_de_dpart', '&gt;=', (context_today() + relativedelta(months=1)).strftime('%%Y-%%m-01')),
+                         ('x_studio_date_de_dpart', '&lt;', (context_today() + relativedelta(months=2)).strftime('%%Y-%%m-01'))]"/>
+                    
+                    
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    
+                    <group expand="0" string="Group By" colspan="16">
+                        <filter string="Jour Départ" name="joursdepart" context="{'group_by':'x_studio_date_de_dpart'}"/>
+                        <!-- <filter string="Site Départ" name="sitedepart" context="{'group_by':'x_studio_site_de_depart'}"/> -->
+                        <filter string="Variété" name="variete" context="{'group_by':'x_studio_varit'}"/>
+                        <filter string="Taille" name="taille"  context="{'group_by':'x_studio_taille'}"/>
+                        <separator orientation="vertical" />
+                        
+                        <filter string="Lead" name="lead" context="{'group_by':'name'}"/>
+                        <filter string="Nom Client" name="client" context="{'group_by':'partner_name'}"/>
+                        <!--<filter string="Statut Commande" name="statutcde" context="{'group_by':'x_studio_statut_de_la_commande'}"/>-->
+                        <filter string="Etape Commande" name="etapecde" context="{'group_by':'stage_id'}"/>
+                        
+                        <filter string="Lieu Livraison" name="lieuliv" context="{'group_by':'x_studio_lieu_de_livraison'}"/>
+                        
+                        <filter string="Transporteur" name="transporteur" context="{'group_by':'x_studio_transporteur'}"/>
+                        <!-->
+                        <filter string="Creation Date" context="{'group_by':'create_date:month'}" name="month"/>
+                        <filter string="Conversion Date" name="date_conversion" context="{'group_by': 'date_conversion'}" groups="crm.group_use_lead"/>
+                        <filter string="Expected Closing" name="date_deadline" context="{'group_by':'date_deadline'}"/>
+                        <filter string="Closed Date" name="date_closed" context="{'group_by':'date_closed'}"/>
+                        -->
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    
+        <record id="di_crm_lead_action_production" model="ir.actions.act_window">
+            <field name="name">Production</field>
+            <field name="res_model">crm.lead</field>
+            <!--<field name="view_mode">kanban,tree,graph,pivot,form,calendar,activity</field>-->
+            <field name="view_mode">tree,calendar,pivot</field>
+            <field name="domain">[('type','=','opportunity')]</field>
+            <field name="context">{
+                    'default_type': 'opportunity',
+                    'search_default_intentionnel': 1,
+                    'search_default_global': 1,
+                    'search_default_confirme_client': 1,
+                    'search_default_confirme_planifie': 1,
+                    
+                               }</field>
+            <field name="search_view_id" ref="di_view_crm_production_opportunities_filter"/>
+        </record>
+
+
+
+ <!-->
+  'search_default_intentionnel': 1,
+                    'search_default_global': 1,
+                    'search_default_confirme': 1,
+                    
+                    'search_default_nbo': 1,
+                    'search_default_pgno': 1,
+                    'search_default_nno': 1,
+                    'search_default_nno2': 1,
+                    'search_default_viv': 1,
+-->
+ 
+
+        <record id="di_crm_lead_action_production_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="di_crm_lead_tree_view"/>
+            <field name="act_window_id" ref="di_crm_lead_action_production"/>
+        </record>
+
+        <record id="di_crm_lead_action_production_view_calendar" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">calendar</field>
+            <field name="view_id" ref="di_crm_lead_calendar_view"/>
+            <field name="act_window_id" ref="di_crm_lead_action_production"/>
+        </record>
+
+        <record id="di_crm_lead_action_production_view_pivot" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="di_crm_lead_pivot_view"/>
+            <field name="act_window_id" ref="di_crm_lead_action_production"/>
+        </record>
+        
+        
+        <record id="di_crm_lead_action_production_nbo" model="ir.actions.act_window">
+            <field name="name">Production</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">tree,calendar,pivot</field>
+            <field name="domain">[('type','=','opportunity')]</field>
+            <field name="search_view_id" ref="di_view_crm_production_opportunities_filter"/>
+            
+            <field name="context">{
+                    'default_type': 'opportunity',
+                    'search_default_intentionnel': 1,
+                    'search_default_global': 1,
+                    
+                    'search_default_confirme_client': 1,
+                    'search_default_confirme_planifie': 1,
+                    
+                    'search_default_nbo': 1,
+                    'group_by': ['x_studio_varit', 'x_studio_taille']
+                    
+                               }</field>
+        </record>
+        
+        <record id="di_crm_lead_action_production_nbo_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="di_crm_lead_tree_view"/>
+            <field name="act_window_id" ref="di_crm_lead_action_production_nbo"/>
+        </record>
+        
+        <record id="di_crm_lead_action_production_nbo_view_calendar" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">calendar</field>
+            <field name="view_id" ref="di_crm_lead_calendar_view"/>
+            <field name="act_window_id" ref="di_crm_lead_action_production_nbo"/>
+        </record>
+
+        <record id="di_crm_lead_action_production_nbo_view_pivot" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="di_crm_lead_pivot_view"/>
+            <field name="act_window_id" ref="di_crm_lead_action_production_nbo"/>
+        </record>      
+        
+        
+<!-->
+        <record id="di_crm_lead_action_production_view_graph" model="ir.actions.act_window.view">
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="crm_lead_view_graph"/>
+            <field name="act_window_id" ref="di_crm_lead_action_production"/>
+        </record>
+        
+        <record id="di_crm_lead_action_production_view_kanban" model="ir.actions.act_window.view">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="crm_case_kanban_view_leads"/>
+            <field name="act_window_id" ref="di_crm_lead_action_production"/>
+        </record>
+-->       
+
+
+    <menuitem
+        id="di_crm_menu_production"
+        name="Production"
+        parent="crm.crm_menu_root"
+        action="di_crm_lead_action_production"
+        
+        sequence="99"/>
+ <!-->       
+    <menuitem
+        id="di_crm_menu_production_site"
+        name="Production"
+        parent="di_crm_menu_production"
+        action="di_crm_lead_action_production"
+        sequence="10"/>    
+        
+    <menuitem
+        id="di_crm_menu_production_nbo"
+        name="Production NBO"
+        parent="di_crm_menu_production"
+        action="di_crm_lead_action_production_nbo"
+        sequence="20"/>   
+ -->
+       
+</odoo>

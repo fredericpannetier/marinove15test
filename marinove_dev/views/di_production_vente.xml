@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <record id="di_production_vente_tree_view" model="ir.ui.view">
+            <field name="name">di.production.vente.tree.view</field>
+            <field name="model">di.production.vente</field>
+            <field name="priority">90</field>
+            <field name="arch" type="xml">
+                <tree string="Sale Production" import="false" create="false">
+                    
+                    <field name="warehouse_id" optional="show"/>
+                    <field name="date_depart" optional="show"/>
+
+                    <field name="name" string="Lead" readonly="1" optional="hide"/>
+                    <field name="partner_id" optional="show"/>
+                    <!--<field name="partner_name" invisible="1" /> -->
+                    <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                    <field name="product_id" optional="show"/>
+                    
+                    <field name="statut_commande" optional="hide"/>
+                    <field name="no_commande" optional="hide"/>
+                    
+                    <field name="variete_id" optional="show"/>
+                    <field name="taille_id" optional="show"/>
+
+                    <field name="unite_id" optional="hide"/>
+                    <field name="quantite_mini" optional="show" sum="Total Quantité mini"/>
+                    <field name="quantite_maxi" optional="show" sum="Total Quantité maxi"/>
+                    <field name="poids_kg" optional="hide"/>
+  
+                    <field name="prix_millier" widget="monetary" optional="hide"/>
+                    <field name="prix_kg" widget="monetary" optional="hide"/>
+  <!-->                 
+                    <field name="prix_millier" optional="hide" attrs="{'readonly': True}"/>
+   -->                
+                    <field name="montant_ca" widget="monetary" optional="hide"  sum="Total CA"/>
+                    <field name="packaging" optional="hide"/>
+                    <field name="lieu_livraison" optional="show"/>
+                    <field name="schedule" optional="show"/>
+                    <field name="carrier_id" optional="show"/>
+
+                    <field name="description" optional="show"/>
+                    <field name="active" invisible="1"/>
+                    <button class="oe_highlight" name="update_data_production" type="object" string="Update Datas" invisible="1"/>
+                </tree>
+            </field>
+    </record>
+    
+    
+    
+    <record id="di_production_vente_calendar_view" model="ir.ui.view">
+        <field name="name">di.production.vente.calendar.view</field>
+        <field name="model">di.production.vente</field>
+        <field name="priority" eval="90"/>
+        <field name="arch" type="xml">
+            <calendar string="Sale Generation" create="0" mode="month" date_start="date_depart" color="user_id" hide_time="true" event_limit="5">
+                    <field name="partner_id" avatar_field="image_128"/>
+                    <field name="lieu_livraison" optional="show"/>
+
+                    <field name="variete_id" optional="show"/>
+                    <field name="taille_id" optional="show"/>
+                    <field name="quantite_maxi" />
+                    <field name="montant_ca"/>
+
+                    <field name="user_id" filters="1" invisible="1"/>
+                </calendar>
+            
+        </field>
+    </record>  
+    
+    
+    <record id="di_production_vente_pivot_view" model="ir.ui.view">
+            <field name="name">di.production.vente.pivot.view</field>
+            <field name="model">di.production.vente</field>
+            <field name="arch" type="xml">
+                <pivot string="Production Analysis" sample="1">
+                
+                    <field name="date_depart" interval="day"  type="row"/>
+                    <field name="partner_name" type="row"/>
+                    <field name="packaging" type="row"/>
+                    <field name="lieu_livraison" type="row"/>
+                    <field name="schedule" type="row"/>
+                    <field name="carrier_id" type="row"/>
+                    <!-- 
+                    <field name="description" type="row"/>
+                     
+                    -->
+                    <field name="variete_id"  type="col"/>
+                    <field name="taille_id"  type="col"/>
+                    
+                    <field name="quantite_maxi" type="measure"/>
+                    
+                </pivot>
+            </field>
+    </record>
+    
+        <record id="di_view_sale_production_filter" model="ir.ui.view">
+            <field name="name">di.production.vente.search.production</field>
+            <field name="model">di.production.vente</field>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+                <search string="Search Production Sales">
+                    <field name="name" string="Production" filter_domain="[
+                        '|', '|', '|', '|',
+                        ('partner_id', 'ilike', self),
+                        ('partner_name', 'ilike', self),
+                        ('name', 'ilike', self)]"/>
+                    <field name="partner_id" operator="child_of" string="Customer" filter_domain="[
+                        '|', '|', '|',
+                        ('partner_id', 'ilike', self),
+                        ('partner_name', 'ilike', self)]"/>
+                    
+                    <field name="user_id"/>
+                    <field name="team_id"/>
+                    <field name="stage_id" domain="[]"/>
+                   
+                    <separator/>
+                    <!--> 
+                     <filter string="Global" name="global"
+                        domain="[('statut_commande', 'ilike', 'Global')]"
+                        help="Statut_de_la_commande : Global"/>
+                    <filter string="Intentionnel" name="intentionnel"
+                        domain="[('statut_commande', 'ilike', 'Intentionnel')]"
+                        help="Statut_de_la_commande : Intentionnel"/>
+                    
+                    <filter string="Confirmé" name="confirme"
+                        domain="[('statut_commande', 'ilike', 'Confirm')]"
+                        help="Statut_de_la_commande : Confirmé"/>
+                    -->
+                    <filter string="Confirmé client" name="confirme_client"
+                        domain="[('statut_commande', 'ilike', 'Confirm'),
+                                 ('statut_commande', 'ilike', 'client')]"
+                        help="Statut_de_la_commande : Confirmé client"/>
+                    <filter string="Confirmé et planifié" name="confirme_planifie"
+                        domain="[('statut_commande', 'ilike', 'Confirm'),
+                                 ('statut_commande', 'ilike', 'planif') ]"
+                        help="Statut_de_la_commande : Confirmé et planifié"/>
+                    
+                    <filter string="Devis" name="devis"
+                        domain="[('statut_commande', 'ilike', 'Devis')]"
+                        help="Statut_de_la_commande : Devis"/>
+                    <filter string="Commande" name="commande"
+                        domain="[('statut_commande', '=', 'Commande')]"
+                        help="Statut_de_la_commande : Commande"/>
+                    <separator/>    
+                        
+                    
+                    <separator/>
+                    
+                    <filter  string="Date départ du jour" name="depart_today"
+                        domain="[('date_depart', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    
+                    <filter string="Current week" name="currentweek" domain="[
+                        ('date_depart','&gt;',(context_today()+relativedelta(weeks=-1,weekday=6)).strftime('%Y-%m-%d')),
+                        ('date_depart','&lt;=',(context_today()+relativedelta(weekday=6)).strftime('%Y-%m-%d'))
+                    ]" />
+ 
+                    <filter string="Next week +1" name="nextweek1" domain="[
+                       ('date_depart', '&gt;', ((context_today()+relativedelta(weekday=6)).strftime('%%Y-%%m-%%d'))),
+                        ('date_depart', '&lt;=',((context_today()+relativedelta(weeks=1,weekday=6)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+
+                    <filter string="Next week +2" name="nextweek2" domain="[
+                       ('date_depart', '&gt;', ((context_today()+relativedelta(weeks=1,weekday=6)).strftime('%%Y-%%m-%%d'))),
+                        ('date_depart', '&lt;=',((context_today()+relativedelta(weeks=2,weekday=6)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+
+                    <filter string="Next week +3" name="nextweek3" domain="[
+                       ('date_depart', '&gt;', ((context_today()+relativedelta(weeks=2,weekday=6)).strftime('%%Y-%%m-%%d'))),
+                        ('date_depart', '&lt;=',((context_today()+relativedelta(weeks=3,weekday=6)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+                   
+                    <!-->    
+                    <filter string="Current and last weeks" name="currentandlastweeks" domain="[
+                        ('date_depart','&gt;=',(context_today()+relativedelta(weeks=-2,days=1,weekday=0)).strftime('%Y-%m-%d')),
+                        ('date_depart','&lt;',(context_today()+relativedelta(weekday=6)).strftime('%Y-%m-%d'))
+                    ]" />
+                    
+                    
+                    <filter string="Last week" name="lastweek" domain="[
+                        ('date_depart', '&gt;=', ((context_today()+relativedelta(weeks=-2,days=1, weekday=0)).strftime('%%Y-%%m-%%d'))),
+                        ('date_depart', '&lt;=', ((context_today()+relativedelta(weeks=-1,weekday=6)).strftime('%%Y-%%m-%%d')))
+                    ]"/>
+                    
+                     <filter string="Previous weeks" name="previousweeks" domain="[
+                        ('date_depart', '&lt;=', ((context_today()+relativedelta(weeks=-2,days=1, weekday=0)).strftime('%%Y-%%m-%%d')))
+                        
+                    ]"/>
+                    <filter string="Last Month" name="last_month" domain="[
+                        '&amp;', ('date_depart', '&gt;=', (context_today() - relativedelta(months=1)).strftime('%%Y-%%m-01')),
+                         ('date_depart', '&lt;', context_today().strftime('%%Y-%%m-01'))]"/>
+
+                    -->
+                    
+                    <filter string="This Month" name="this_month" domain="[
+                        ('date_depart', '&gt;=', context_today().strftime('%%Y-%%m-01'))]"/>
+
+                   <filter string="Next Month" name="Next_month" domain="[
+                        '&amp;', ('date_depart', '&gt;=', (context_today() + relativedelta(months=1)).strftime('%%Y-%%m-01')),
+                         ('date_depart', '&lt;', (context_today() + relativedelta(months=2)).strftime('%%Y-%%m-01'))]"/>
+              
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    
+                    <group expand="0" string="Group By" colspan="16">
+                        <filter string="Jour Départ" name="joursdepart" context="{'group_by':'date_depart'}"/>
+                        
+                        <filter string="Variété" name="variete" context="{'group_by':'variete_id'}"/>
+                        <filter string="Taille" name="taille"  context="{'group_by':'taille_id'}"/>
+                        <separator orientation="vertical" />
+                        
+                        <filter string="Production" name="production" context="{'group_by':'name'}"/>
+                        <filter string="Nom Client" name="client" context="{'group_by':'partner_name'}"/>
+                        <filter string="Etape" name="statutcde" context="{'group_by':'statut_commande'}"/>
+                        <filter string="Packaging" name="package" context="{'group_by':'packaging'}"/>
+                        <filter string="Lieu Livraison" name="lieuliv" context="{'group_by':'lieu_livraison'}"/>
+                        <filter string="Transporteur" name="transporteur" context="{'group_by':'carrier_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    
+        <record id="di_production_vente_action_production" model="ir.actions.act_window">
+            <field name="name">Production</field>
+            <field name="res_model">di.production.vente</field>
+            <field name="view_mode">tree,calendar,pivot</field>
+            <field name="context">{
+                    
+                    'search_default_confirme_client': 1,
+                    'search_default_confirme_planifie': 1,
+                    'search_default_devis': 1,
+                    'search_default_commande': 1,
+                               }</field>
+            <!--<field name="view_id" ref="di_production_vente_tree_view"/>-->                               
+            <field name="search_view_id" ref="di_view_sale_production_filter"/>
+        </record>
+
+ 
+        <record id="di_production_vente_action_production_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="di_production_vente_tree_view"/>
+            <field name="act_window_id" ref="di_production_vente_action_production"/>
+        </record>
+
+        <record id="di_production_vente_action_production_view_calendar" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">calendar</field>
+            <field name="view_id" ref="di_production_vente_calendar_view"/>
+            <field name="act_window_id" ref="di_production_vente_action_production"/>
+        </record>
+
+        <record id="di_production_vente_action_production_view_pivot" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="di_production_vente_pivot_view"/>
+            <field name="act_window_id" ref="di_production_vente_action_production"/>
+        </record>
+        
+        
+        <record id="di_production_vente_action_production_nbo" model="ir.actions.act_window">
+            <field name="name">Production</field>
+            <field name="res_model">di.production.vente</field>
+            <field name="view_mode">tree,calendar,pivot</field>
+            <field name="domain">[('type','=','opportunity')]</field>
+            <field name="search_view_id" ref="di_view_sale_production_filter"/>
+            
+            <field name="context">{
+                    
+                    'search_default_intentionnel': 1,
+                    'search_default_global': 1,
+                    
+                    'search_default_confirme_client': 1,
+                    'search_default_confirme_planifie': 1,
+                    'search_default_commande': 1,
+                    'search_default_nbo': 1,
+                    'group_by': ['variete_id', 'variete_id']
+                    
+                               }</field>
+        </record>
+        
+        <record id="di_production_vente_action_production_nbo_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="di_production_vente_tree_view"/>
+            <field name="act_window_id" ref="di_production_vente_action_production_nbo"/>
+        </record>
+        
+        <record id="di_production_vente_action_production_nbo_view_calendar" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">calendar</field>
+            <field name="view_id" ref="di_production_vente_calendar_view"/>
+            <field name="act_window_id" ref="di_production_vente_action_production_nbo"/>
+        </record>
+
+        <record id="di_production_vente_action_production_nbo_view_pivot" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="di_production_vente_pivot_view"/>
+            <field name="act_window_id" ref="di_production_vente_action_production_nbo"/>
+        </record>      
+        
+        
+
+        <!--
+            'Update Datas' in action dropdown
+        
+        <record id="action_update_data_production" model="ir.actions.server">
+            <field name="name">Update Datas</field>
+            <field name="model_id" ref="model_di_production_vente"/>
+            <field name="binding_model_id" ref="model_di_production_vente"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                    action = model.update_data_production()
+            </field>
+        </record>
+        -->
+        
+        <record id="action_list_sale_production" model="ir.actions.server">
+            <field name="name">List Datas</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_di_production_vente"/>
+            
+           <!--><field name="binding_model_id" ref="model_di_production_vente"/>
+            <field name="binding_view_types">list</field> -->
+            <field name="state">code</field>
+            <field name="code">
+                    action = model.sale_production_list()
+            </field>
+        </record>
+
+
+    <menuitem id="menu_marinove_sale" name="Marinove" sequence="99" parent="sale.sale_menu_root" />   
+    <!-->
+    <menuitem
+        id="di_sale_menu_production"
+        name="Production"
+        parent="menu_marinove_sale"
+        
+        action="action_list_sale_production"
+        sequence="10"/>
+    -->
+       <!--action="di_production_vente_action_production"-->
+       
+</odoo>

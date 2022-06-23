@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+     <record id="di_account_analyse_search" model="ir.ui.view">
+        <field name="name">di.account.analyse.search</field>
+        <field name="model">account.invoice.report</field>
+        <field name="inherit_id" ref="account.view_account_invoice_report_search"/>
+        <field name="arch" type="xml">
+        
+            <xpath expr="//filter[@name='creditnote']" position="after">
+                <separator/>
+                <filter string="Calcul Stat" name="calcul_stat" domain="[('calcul_stat', '=', True)]"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

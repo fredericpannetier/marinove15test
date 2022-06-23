@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_invoice_marinove">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.invoice_user_id.sudo().lang if o.move_type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
+                    <t t-call="marinove_dev.report_invoice_document_marinove" t-lang="lang"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_invoice_with_payments_marinove">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.invoice_user_id.sudo().lang if o.move_type in ('in_invoice', 'in_refund') else o.partner_id.lang"/>
+                    <t t-set="print_with_payments" t-value="True"/>
+                    <t t-call="marinove_dev.report_invoice_document_marinove" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_invoice_document_marinove" inherit_id="account.report_invoice_document">
+              
+            <xpath expr="//p[@name='payment_communication']" position="after"> 
+                <p t-if="o.di_comment_invoice">
+                    <span t-field="o.di_comment_invoice"/>
+                </p>              
+            </xpath>
+            
+            
+        </template>
+    </data>
+
+
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="di_delivery_carrier_form" model="ir.ui.view" >
+        <field name="name">di.delivery.carrier.form</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+        <field name="arch" type="xml">
+        
+            
+           <xpath expr="//field[@name='company_id']" position="after"> 
+                <field name="di_street"/>
+                <field name="di_street2"/>
+                <field name="di_zip"/>
+                <field name="di_city"/>
+                <field name="di_phone"/>
+                <field name="di_mobile"/>
+                <field name="di_email"/>
+                <field name="di_rcs"/>
+                <field name="di_siret"/>
+                <field name="di_capital"/>
+                <field name="di_schedule"/>
+                <field name="di_etiq_mention"/>
+            </xpath>
+           
+                 
+        </field>
+    </record>
+</odoo>

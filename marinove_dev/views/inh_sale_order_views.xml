@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="di_sale_order_form" model="ir.ui.view" >
+        <field name="name">di.sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+           
+           <!-->
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="replace">
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='qty_delivered']" position="before">
+                <label for="product_uom_qty" string="Qté / Poids"/>
+                <field name="product_uom_qty" decoration-info="(not display_type and invoice_status == 'to invoice')" decoration-bf="(not display_type and invoice_status == 'to invoice')" context="{                                             'partner_id': parent.partner_id,                                             'quantity': product_uom_qty,                                             'pricelist': parent.pricelist_id,                                             'uom': product_uom,                                             'company_id': parent.company_id                                         }"/>
+                                    
+            </xpath>
+            -->
+            <!-->
+            <xpath expr="//field[@name='partner_invoice_id']" position="replace"/>
+            <xpath expr="//field[@name='partner_shipping_id']" position="replace"/>
+            
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="partner_invoice_id" groups="sale.group_delivery_invoice_address" context="{'default_type':'invoice'}" options='{"always_reload": True}' 
+                    domain="['&amp;', '|', ('id', '=', partner_id), ('parent_id', '=', partner_id), '|', ('company_id', '=', False), ('company_id', '=', company_id)]" />
+                <field name="partner_shipping_id" groups="sale.group_delivery_invoice_address" context="{'default_type':'delivery'}" options='{"always_reload": True}' 
+                    domain="['&amp;', '|', ('id', '=', partner_id), ('parent_id', '=', partner_id), '|', ('company_id', '=', False), ('company_id', '=', company_id)]" />
+            </xpath>
+            
+            
+            <xpath expr="//button[@name='%(sale.action_view_sale_advance_payment_inv)d']" position="attributes">
+                <attribute name="invisible">[('invoice_status', '!=', 'to invoice')]</attribute>
+            </xpath> 
+            -->
+            <xpath expr="//field[@name='partner_invoice_id']" position="attributes">
+                <attribute name="domain">['&amp;', '|', ('id', '=', partner_id), ('parent_id', '=', partner_id), '|', ('company_id', '=', False), ('company_id', '=', company_id)]</attribute>
+            </xpath> 
+            <xpath expr="//field[@name='partner_shipping_id']" position="attributes">
+                <attribute name="domain">['&amp;', '|', ('id', '=', partner_id), ('parent_id', '=', partner_id), '|', ('company_id', '=', False), ('company_id', '=', company_id)]</attribute>
+            </xpath> 
+            
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_total']" position="before">
+                <!--<field name="di_nb_colis"  optional="hide" />-->
+                <field name="di_geste_commercial"  optional="hide" />
+                <field name="di_carrier_id"  optional="hide" />
+                <field name="di_schedule" optional="hide" />
+                <field name="di_warehouse_id"  optional="hide" />
+                <field name="di_unite_categorie_name" invisible="1"/>
+                <field name="di_quantite_mini"  optional="hide" />
+                <field name="di_quantite_maxi" string="Quantité maxi (en milliers) (*)"  optional="hide" />
+                <field name="di_prix" attrs="{'invisible': [('di_unite_categorie_name','=','Poids')]}"  optional="hide"/>
+                
+                <!--<field name="di_poids_kg" attrs="{'readonly': [('di_unite_categorie_name','=','Poids')]}" optional="hide" />-->
+                <field name="di_poids_kg"  optional="hide" />
+                <field name="di_prix_kg" attrs="{'invisible': [('di_unite_categorie_name','!=','Poids')]}"  optional="hide"/>
+                <field name="di_comment"  optional="hide"/>
+            </xpath>
+            
+            <xpath expr="//field[@name='require_signature']" position="before">
+                <field name="opportunity_id"  />
+            </xpath>
+           
+            <xpath expr="//label[@for='commitment_date']" position="before">
+                <field name="di_lieu_livraison_1"  />
+                
+                <label for="carrier_id" string="Transporteur"/>
+                <field name="carrier_id"  nolabel="1"/>
+                <field name="di_schedule"  />
+                <field name="di_packaging"  />
+                <!-->
+                <field name="di_warehouse_id_2" options="{'no_create': True}" groups="stock.group_stock_multi_warehouses" force_save="1"/>
+                <field name="di_lieu_livraison_2"  />
+                -->
+            </xpath>
+             
+             <xpath expr="//page[@name='other_information']" position="after">
+                <page name="note" string="Note" >
+                    <field name="di_comment" />
+                </page>    
+            </xpath>
+ 
+            <!-->    
+            <xpath expr="//group[@name='sale_shipping']" position="after">
+            
+                <group string="Information Livraison" name="sale_info">
+                    <label for="carrier_id" string="Transport 1"/>
+                    <field name="carrier_id"  nolabel="1"/>
+                
+                    
+                    <label for="di_commentaire_carrier_1" string="Commentaire 1"/>
+                    <field name="di_commentaire_carrier_1" nolabel="1"/>
+                    
+                    <label for="di_montant_carrier_1" string="Montant 1"/>
+                    <field name="di_montant_carrier_1" nolabel="1"/>
+                    
+                    <label for="di_carrier_id_2" string="Transport 2"/>
+                    <field name="di_carrier_id_2" nolabel="1"/>
+                 
+                    <label for="di_commentaire_carrier_2" string="Commentaire 2"/>
+                    <field name="di_commentaire_carrier_2" nolabel="1"/>
+                  
+                    <label for="di_montant_carrier_2" string="Montant 2"/>
+                    <field name="di_montant_carrier_2" nolabel="1"/>
+                    
+                                        
+                    <label for="di_nb_colis_total" string="Nombre Colis Total"/>
+                    <field name="di_nb_colis_total" nolabel="1"/>
+
+                    <label for="di_poids_kg_total" string="Poids Total"/>
+                    <field name="di_poids_kg_total" nolabel="1"/>
+                    
+                     
+                </group>
+            
+                
+            </xpath>
+            -->
+
+
+        </field>
+    </record>
+    
+    <record id="di_view_quotation_tree" model="ir.ui.view">
+        <field name="name">di.view.sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+        
+            
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="di_country_name"  optional="hide" />
+                <field name="di_state_name"  optional="hide" />
+                <field name="di_state_code"  optional="hide" />
+            </xpath>
+
+        </field>
+    </record>
+    
+    <record id="di_view_sale_order_tree" model="ir.ui.view">
+        <field name="name">di.view.sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+        
+            <xpath expr="//field[@name='date_order']" position="before">
+                <field name="state"  optional="hide" />
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="di_country_name"  optional="hide" />
+                <field name="di_state_name"  optional="hide" />
+                <field name="di_state_code"  optional="hide" />
+            </xpath>
+
+        </field>
+    </record>
+
+ 
+</odoo>

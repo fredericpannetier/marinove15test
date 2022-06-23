@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    
+   <record id="di_view_historique_sage_tree" model="ir.ui.view">
+        <field name="name">di.view.historique.sage.tree</field>
+        <field name="model">x_historique_sage</field>
+        <field name="inherit_id" ref="studio_customization.odoo_studio_default__28a77c80-4a0e-4df0-b6c1-eb90ddfa26a4"/>
+        <field name="arch" type="xml">
+        
+            <xpath expr="//field[@name='x_name']" position="replace"/>
+            
+            <xpath expr="//field[@name='x_studio_date_de_facture']" position="after">
+                <field name="x_name"  optional="hide" />
+            </xpath>
+            <xpath expr="//field[@name='x_studio_poids_1']" position="after">
+                <field name="x_studio_prix_unitaire"  optional="hide" />
+            </xpath>
+        </field>
+    </record>
+ 
+</odoo>
