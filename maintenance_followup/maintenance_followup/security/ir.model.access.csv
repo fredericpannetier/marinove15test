@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_di_equipment_user,di.equipment.user,model_di_maintenance_equipment,base.group_user,1,0,0,0
+access_di_equipment_admin_user,di.equipment.admin.user,model_di_maintenance_equipment,di_group_equipment_manager,1,1,1,1
+access_di_maintenance_system_user,di.equipment.request system user,model_di_maintenance_request,base.group_user,1,1,1,1
+access_di_equipment_category_user,di.equipment.category.user,model_di_maintenance_equipment_category,base.group_user,1,0,0,0
+access_di_equipment_category_admin_user,di.equipment.category system user,model_di_maintenance_equipment_category,di_group_equipment_manager,1,1,1,1
+access_di_maintenance_stage_user,di.maintenance.stage.user,model_di_maintenance_stage,base.group_user,1,0,0,0
+access_di_maintenance_stage_admin_user,di.equipment.request.stage system user,model_di_maintenance_stage,di_group_equipment_manager,1,1,1,1
+access_di_maintenance_team_user,di.maintenance.team.user,model_di_maintenance_team,base.group_user,1,0,0,0
+access_di_maintenance_team_admin_user,di.maintenance.team.admin.user,model_di_maintenance_team,di_group_equipment_manager,1,1,1,1
+access_di_mail_activity_type_equipment_manager,di.mail.activity.type.equipment.manager,mail.model_mail_activity_type,maintenance_followup.di_group_equipment_manager,1,1,1,1

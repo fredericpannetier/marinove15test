@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <!-- Standard stages for Maintenance Request -->
+    <record id="di_stage_1" model="di.maintenance.stage">
+        <field name="name">User Request</field>
+        <field name="sequence" eval="1" />
+        <field name="fold" eval="False" />
+    </record>
+    <record id="di_stage_2" model="di.maintenance.stage">
+        <field name="name">Validation Request</field>
+        <field name="sequence" eval="2" />
+        <field name="fold" eval="False" />
+    </record>
+    <record id="di_stage_3" model="di.maintenance.stage">
+        <field name="name">Assistance</field>
+        <field name="sequence" eval="3" />
+        <field name="fold" eval="False" />
+        <field name="done" eval="False" />
+    </record>
+    <record id="di_stage_4" model="di.maintenance.stage">
+        <field name="name">Quotation</field>
+        <field name="sequence" eval="4" />
+        <field name="fold" eval="False" />
+        <field name="done" eval="False" />
+    </record>
+    <record id="di_stage_5" model="di.maintenance.stage">
+        <field name="name">Return Quote Accepted</field>
+        <field name="sequence" eval="5" />
+        <field name="fold" eval="False" />
+        <field name="done" eval="False" />
+    </record>
+    <record id="di_stage_6" model="di.maintenance.stage">
+        <field name="name">Customer Validation</field>
+        <field name="sequence" eval="6" />
+        <field name="fold" eval="False" />
+        <field name="done" eval="False" />
+    </record>
+    <record id="di_stage_7" model="di.maintenance.stage">
+        <field name="name">Customer Confirmation</field>
+        <field name="sequence" eval="7" />
+        <field name="fold" eval="False" />
+        <field name="done" eval="True" />
+    </record>
+    <record id="di_stage_8" model="di.maintenance.stage">
+        <field name="name">Cancelled</field>
+        <field name="sequence" eval="8" />
+        <field name="fold" eval="True" />
+        <field name="done" eval="True" />
+    </record>
+
+</data>
+</odoo>

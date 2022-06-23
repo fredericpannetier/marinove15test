@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    <record id="di_request_view_form" model="ir.ui.view">
+        <field name="name">di.request.view.form</field>
+        <field name="model">maintenance.request</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+        <field name="arch" type="xml">
+  
+            <xpath expr="//field[@name='priority']" position="before">
+                <field name="di_amount_quotation" />
+            </xpath>
+                       
+        </field>
+    </record>
+  
+    
+    
+    </data>
+ 
+</odoo>
